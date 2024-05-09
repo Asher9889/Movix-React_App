@@ -4,6 +4,7 @@ import fetchDataFromApi from '../../../utils/axios';
 import { useNavigate } from 'react-router-dom';
 import useFetch from '../../../hooks/useFetch';
 import { useSelector } from 'react-redux';
+import { Image, ContentWrapper} from '../../../components';
 
 
 
@@ -31,6 +32,9 @@ const HeroBanner = () => {
 
   return (
     <div className='heroBanner'>
+      <div className='heroBanner-image'>
+        <Image src={wallpaper}/>
+      </div>
       <div className="wrapper">
         <div className="heroBannerContent">
           <h1 className='title'>Welcome</h1>
