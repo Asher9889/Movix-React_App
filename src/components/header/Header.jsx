@@ -22,7 +22,7 @@ const Header = () => {
     setShowMobileMenu(false)
   }
   return (<>
-    <header className={`header ${showMobileMenu ? "background" : ""} `}>
+    <header className={`header ${showMobileMenu ? "backgroundF" : ""} `}>
       <ContentWrapper >
         <div>
           <img src={MovixLogo} alt="" />
