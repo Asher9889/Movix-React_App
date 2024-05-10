@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import MovixLogo from "../../assets/movix-logo.svg";
 import ContentWrapper from "../contentWrapper/ContentWrapper";
@@ -13,6 +13,9 @@ const Header = () => {
   const [query, setQuery] = useState(null);
   const [showSearch, setShowSearch] = useState(false)
   const navigate = useNavigate();
+  // for scoll feature for header
+  const [showHeader, setShowHeader] = useState("top")
+  const [scrollY, setScrollY] = useState(0)
 
   const showMenu = () => {
     setMobileMenu(true);
@@ -30,6 +33,21 @@ const Header = () => {
     else if(type === "tv") {navigate("/explore/tv")}
   }
 
+  useEffect(()=>{
+    window.addEventListener("scroll", ()=>{
+      if(window.scrollY > 300 && !showMobileMenu){
+        setShowHeader("hide")
+        setScrollY(window.scrollY)
+        if(window.scrollY< scrollY){
+          setShowHeader("show")
+        }
+      } else{
+        setShowHeader("top")
+      }
+
+    })
+  },[scrollY])
+
   const searchInputHandle = (e) => {
     if (e.key === "Enter" && query.length > 0) {
       navigate(`/search/${query}`);
@@ -41,7 +59,7 @@ const Header = () => {
 
   return (
     <>
-      <header className={`header ${showMobileMenu ? "backgroundF" : ""} `}>
+      <header className={`header ${showHeader} ${!showMobileMenu ? "backgroundF" : ""} `}>
         <ContentWrapper>
           <div>
             <img onClick={()=>navigate("/")} src={MovixLogo} alt="" />

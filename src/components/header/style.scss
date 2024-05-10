@@ -7,10 +7,19 @@
     z-index: 5;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(3.5px);
-    -webkit-backdrop-filter: blur(3.5px);
-
+    
+    &.top{
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(3.5px);
+        -webkit-backdrop-filter: blur(3.5px);
+    }
+    &.show{
+        background: var(--black3);
+        // animation: ease 0.5s;
+    }
+    &.hide{
+        transform: translateY(-60px);
+    }
 
     .contentWrapper {
         // background-color: yellowgreen;
@@ -148,6 +157,7 @@
 
 .backgroundF {
     background: var(--black3);
+    // background-color: red;
     transition: ease 0.5s;
 }
 
