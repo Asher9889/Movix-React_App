@@ -18,7 +18,8 @@ function App() {
 
   const getDataFromApi = async () => {
     const {images} = await fetchDataFromApi("/configuration")
-    dispath(getApiData(images.secure_base_url))
+    // console.log(images)
+    dispath(getApiData(images.base_url))
 
   }
 
@@ -36,7 +37,7 @@ function App() {
           <Route path='/explore/:mediaType' element={<Explore/>}/>
           <Route path='*' element={<PageNotFound/>}/>
         </Routes>
-      <Footer/>
+      {/* <Footer/> */}
     </BrowserRouter>
     </>
   )
