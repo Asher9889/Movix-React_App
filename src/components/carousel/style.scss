@@ -20,11 +20,12 @@
             // gap: 10px;
 
             .carouselItem {
+                position: relative;
                 width: 125px;
                 display: flex;
                 overflow-x: scroll;
                 flex-direction: column;
-                gap: 10px;
+                // gap: 10px;
                 margin-right: 20px;
                 // flex-wrap: nowrap;
 
@@ -52,6 +53,7 @@
 
                 .title {
                     font-size: 14px;
+                    margin-top: 20px;
                     // background-color: pink;
 
                 }
@@ -59,6 +61,7 @@
                 .date {
                     opacity: .5;
                     font-size: 14px;
+                    margin-top: 10px;
                 }
             }
         }
