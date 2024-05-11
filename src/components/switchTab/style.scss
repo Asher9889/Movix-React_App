@@ -1,0 +1,47 @@
+.switchTab{
+    background-color: white;
+    border-radius: 20px;
+    padding: 2px 3px;
+    height: 32px;
+    .switchItems{
+        display: flex;
+        position: relative;
+        // background-color: red;
+
+        p{
+            color: black;
+            cursor: pointer;
+            position: relative;
+            z-index: 20;
+            // background-color: green;
+            width: 100px;
+            height: 28px;
+            display: flex;
+            padding: 6px 20px;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            border-radius: 20px;
+           &.active{
+            color: white;
+           }
+        }
+        .gradientBg{
+            background: var(--gradient);
+            display: inline-block;
+            width: 100px;
+            height: 28px;
+            border-radius: 20px;
+            position: absolute;
+            background-color: yellowgreen;
+            top: 0;
+            left: 0;
+            // z-index: 10;
+            // transform: translateX(0px);
+            transition: left cubic-bezier(0.88, -0.35, 0.565, 1.35) 0.4s;
+           
+            
+        }
+        
+    }
+}
