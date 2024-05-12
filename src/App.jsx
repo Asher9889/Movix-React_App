@@ -5,24 +5,49 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import {Home, SearchResults, Explore, Details, PageNotFound } from "./pages/index"
 import {Header, Footer} from "./components/index"
 import { useSelector } from 'react-redux';
-import { getApiData } from './store/reducers/homeSlice';
+import { getApiData, getGenresData } from './store/reducers/homeSlice';
 import { useDispatch } from 'react-redux';
 
 function App() {
-  const dispath = useDispatch();
+  const dispatch = useDispatch();
+  
 
 
   useEffect(() => {
     getDataFromApi()
+    genersCall()
   },[])
 
   const getDataFromApi = async () => {
     const {images} = await fetchDataFromApi("/configuration")
     // console.log(images)
-    dispath(getApiData(images.base_url))
+    dispatch(getApiData(images.base_url))
 
   }
 
+    const genersCall = async () =>{
+      let endPoints = ["movie", "tv"]
+      let allGeners = {}
+      let promises = []
+
+      endPoints.forEach((elem)=>{
+        promises.push(fetchDataFromApi(`/genre/${elem}/list`))
+      })
+
+      const data = await Promise.all(promises)
+      console.log(data)
+
+      data.map(({genres})=>{
+        return genres.map((elem,index) =>{
+          return allGeners[elem.id] = elem
+        })
+    })
+
+    dispatch(getGenresData(allGeners))
+    console.log(allGeners)
+    }
+
+    
   
 
   return (

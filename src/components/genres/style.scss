@@ -1,0 +1,20 @@
+.genres{
+    position: absolute;
+    bottom: 28%;
+    right: 0%;
+    z-index: 0;
+    width: 55%;
+    margin-right: 5px;
+    display: flex;
+    justify-content: end;
+    flex-wrap: wrap;
+    gap: 5px;
+    p{
+        font-size: 10px;
+        padding: 3px 5px;
+        white-space: nowrap;
+        // text-align: right;
+        background-color: var(--pink);
+        
+    }
+}

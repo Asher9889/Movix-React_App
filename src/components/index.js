@@ -5,5 +5,6 @@ import Image from "./lazyLoadImage/Image"
 import SwitchTab from "./switchTab/SwitchTab"
 import Carousel from "./carousel/Carousel"
 import RatingCircle from "./ratingCircle/RatingCircle"
+import Genres from "./genres/Genres"
 
-export {Header, Footer, ContentWrapper, Image, SwitchTab, Carousel, RatingCircle}
+export {Header, Footer, ContentWrapper, Image, SwitchTab, Carousel, RatingCircle, Genres}

@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     info: null,
+    genres: null,
 }
 
 export const homeSlice = createSlice({
@@ -14,11 +15,14 @@ export const homeSlice = createSlice({
 
         removeApiData: (state, action) => {
             state.info = "";
+        },
+        getGenresData: (state, action) =>{
+            state.genres = action.payload;
         }
 
 
     }
 })
 
-export const {getApiData, removeApiData} = homeSlice.actions;
+export const {getApiData, removeApiData, getGenresData} = homeSlice.actions;
 export default homeSlice.reducer;
