@@ -9,7 +9,7 @@ const Genres = ({data}) => {
     <div className='genres'>
       {data?.map((e)=>{
         if(!data || !genres) return;
-        return <p key={e}>{`${genres[e]?.name}`}</p>
+        return <p key={e}>{genres[e]?.name}</p>
       })}
     </div>
   )

@@ -1,20 +1,31 @@
+@import "../../mixins.scss";
+
+
 .genres{
     position: absolute;
     bottom: 28%;
     right: 0%;
     z-index: 0;
     width: 55%;
+    // background-color: red;
     margin-right: 5px;
     display: flex;
     justify-content: end;
     flex-wrap: wrap;
     gap: 5px;
+    display: none;
+    @include sm{
+        display: inline-block;
+        display: flex;
+    }
     p{
         font-size: 10px;
         padding: 3px 5px;
         white-space: nowrap;
+        color: white;
         // text-align: right;
         background-color: var(--pink);
+        
         
     }
 }
