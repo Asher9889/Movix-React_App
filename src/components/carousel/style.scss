@@ -15,7 +15,7 @@
 
     .contentWrapper {
         // background-color: red;
-        padding-left: 20px;
+        // padding-left: 20px;
         overflow-x: scroll;
         width: 100%;
         max-width: 1200px;
@@ -23,7 +23,7 @@
         // margin: 0 auto;
         .carouselItems {
             display: flex;
-            
+            // background-color: cyan;
             // position: relative;
             // gap: 10px;
 
@@ -94,11 +94,14 @@
         border-radius: 50%;
         background-color: gray;
         display: none;
+        
+        filter: drop-shadow(0px 0px 5px #000);
         @include sm{
             display: block;
         }
     }
     .right-arrow{
+        filter: drop-shadow(0px 0px 5px #000);
         position: absolute;
         top: 35%;
         color: black;

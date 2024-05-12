@@ -8,24 +8,31 @@ import RatingCircle from "../ratingCircle/RatingCircle";
 import Genres from "../genres/Genres";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 const Carousel = ({ data, loading }) => {
+  const navigate = useNavigate();
   const [amount, setAmount] = useState(0);
   const { info } = useSelector((state) => state.home);
   console.log(info);
 
-  const scroll = ()=>{
-
-  }
+  // const scrollRight = ()=>{
+  //   if(amount > 1000) setAmount(1000)
+  //   setAmount(amount + 150)
+  // }
+  // const scrollLeft = ()=>{
+  //   if(amount > 1000) setAmount(1000)
+  //   setAmount(amount - 150)
+  // }
 
 
   return (
     <div className="carousel">
       <ContentWrapper>
-        <div className="carouselItems">
+        <div className="carouselItems" >
           {data?.map((e, index) => {
             return (
-              <div key={e.id} className="carouselItem">
+              <div onClick={()=> navigate(`/${e.media_type}/${e.id}`)} key={e.id} className="carouselItem" >
                 <Image src={info + "original" + e.poster_path} key={e.id} />
                 <p className="title">
                   {e && (e.original_title || e.title || e.name).slice(0, 15)}
@@ -37,8 +44,8 @@ const Carousel = ({ data, loading }) => {
             );
           })}
 
-          <span className="left-arrow"><FaArrowLeftLong /></span>
-          <span className="right-arrow"><FaArrowRightLong /></span>
+          <span className="left-arrow" ><FaArrowLeftLong /></span>
+          <span className="right-arrow" ><FaArrowRightLong /></span>
         </div>
       </ContentWrapper>
     </div>

@@ -1,16 +1,20 @@
 import React from 'react'
 import HeroBanner from "./heroBanner/HeroBanner"
 import Trending from './trending/Trending'
-
+import Popular from './popular/Popular'
+import TopRated from './topRated/TopRated'
+import "./home.scss"
 
 const Home = () => {
   return (
-    <div>
+    <div className='home'>
       <HeroBanner />
       <Trending />
-      <div style={{height:"1000px"}}>
+      <Popular />
+      <TopRated />
+     
 
-      </div>
+     
     </div>
   )
 }
