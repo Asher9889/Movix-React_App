@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     info: null,
     genres: null,
+    video: null,
 }
 
 export const homeSlice = createSlice({
@@ -18,11 +19,14 @@ export const homeSlice = createSlice({
         },
         getGenresData: (state, action) =>{
             state.genres = action.payload;
+        },
+        getVideoData: (state, action) =>{
+            state.video = action.payload;
         }
 
 
     }
 })
 
-export const {getApiData, removeApiData, getGenresData} = homeSlice.actions;
+export const {getApiData, removeApiData, getGenresData, getVideoData} = homeSlice.actions;
 export default homeSlice.reducer;

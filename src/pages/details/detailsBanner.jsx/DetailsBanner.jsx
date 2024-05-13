@@ -1,36 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.scss";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Image from "../../../components/lazyLoadImage/Image";
 import { Genres, RatingCircle } from "../../../components/index";
 import PlayIcon from "../../../components/playIcon/PlayIcon";
 import Play from "../../../assets/playIcon.svg";
 import dayjs from "dayjs";
 import useFetch from "../../../hooks/useFetch";
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Link, Navigate, Outlet, useNavigate, useParams } from "react-router-dom";
 import imdb from "../../../assets/imdb.png"
 import VideoPlay from "../../../components/videoPlay/VideoPlay";
-
+import { getVideoData } from "../../../store/reducers/homeSlice";
 const DetailsBanner = ({ data }) => {
+
+  const navigate = useNavigate();
   const { info } = useSelector((state) => state.home);
-  console.log(info);
-  console.log(data);
+
+  // console.log(info);
+  // console.log(data);
   const { id, mediaType } = useParams();
-  console.log(id, mediaType);
+  // console.log(id, mediaType);
 
   const { data: c } = useFetch(`/${mediaType}/${id}/credits`);
-  console.log(c);
+  // console.log(c);
 
   const director = c && c.crew?.filter((e) => e.job === "Director");
-  console.log(director);
+  // console.log(director);
 
   const Actors = c && c.cast?.filter((e) => e.known_for_department === "Acting" && e.order < 4);
-  console.log(Actors);
-  const { data: v } = useFetch(`/${mediaType}/${id}/videos`);
-  console.log(v);
+  // console.log(Actors);
+  const res = useFetch(`/${mediaType}/${id}/videos`);
+  const video = res?.data?.results
+  console.log(video)
+  // const trailer1 = video?.filter((e) => e.type === "Trailer" && e.name === "Official Trailer")
+  const trailer = video?.find(e => ["Official Trailer", "Original Trailer","International Trailer","Season 1 Trailer", "Trailer", "Official US Trailer | English Subtitles"].includes(e.name))
 
-  const information = useFetch(`/`);
+  // console.log(trailer1, trailer2)
+  const dispatch = useDispatch();
+  dispatch(getVideoData(trailer))
+
+
 
   return (
     <>
@@ -51,7 +61,7 @@ const DetailsBanner = ({ data }) => {
             <div className="bannerDetails">
               <div className="left">
                 <Image src={info + "original" + data.poster_path} />
-                <Link target="_blank" to={`https://www.imdb.com/title/${data.imdb_id}`}><img className="imdb-img" src={imdb}/></Link>
+               <img onClick={()=> window.open(`https://www.imdb.com/title/${data.imdb_id}` , "_blank", console.log("clicked"))} className="imdb-img" src={imdb}/>
               </div>
               <div className="right">
                 <p className="title">{data.title}</p>
@@ -63,12 +73,12 @@ const DetailsBanner = ({ data }) => {
                   <span className="details-rating">
                     <RatingCircle data={data.vote_average.toFixed(1)} />
                   </span>
-                  <Link to={`${mediaType}/${id}/video`}><span className="play-div">
+                  <span onClick={()=> navigate(`/${mediaType}/${id}/video`)} className="play-div">
                     <img src={Play} />
                     {/* <PlayIcon /> */}
                     <p className="play-text">Watch Trailer</p>
                   </span>
-                  </Link>
+                 
                   
                 </div>
 
@@ -122,7 +132,8 @@ const DetailsBanner = ({ data }) => {
                 
               </div>
             </div>
-            <Outlet />
+           <Outlet/>
+            
           </ContentWrapper>
         </div>
       )}
