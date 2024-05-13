@@ -8,11 +8,18 @@ import PlayIcon from '../../../components/playIcon/PlayIcon'
 import Play from "../../../assets/playIcon.svg"
 import dayjs from 'dayjs'
 import useFetch from '../../../hooks/useFetch'
+import { useParams } from 'react-router-dom'
 
 
 const DetailsBanner = ({data}) => {
   const {info} = useSelector((state)=> state.home)
   console.log(info)
+  const {id, mediaType} = useParams();
+  console.log(id, mediaType)
+  const castData = useFetch(`/${mediaType}/${id}/credits`)
+  console.log(castData)
+  const videoData = useFetch(`/${mediaType}/${id}/videos`)
+  console.log(videoData)
 
   const information = useFetch(`/`)
     
