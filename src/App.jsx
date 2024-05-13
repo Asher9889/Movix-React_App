@@ -35,7 +35,7 @@ function App() {
       })
 
       const data = await Promise.all(promises)
-      console.log(data)
+      // console.log(data)
 
       data.map(({genres})=>{
         return genres.map((elem,index) =>{
@@ -44,7 +44,7 @@ function App() {
     })
 
     dispatch(getGenresData(allGeners))
-    console.log(allGeners)
+    // console.log(allGeners)
     }
 
     

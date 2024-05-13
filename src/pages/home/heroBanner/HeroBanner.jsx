@@ -20,7 +20,7 @@ const HeroBanner = () => {
   };
 
   const { data, loading } = useFetch("/movie/upcoming");
-  console.log(data, loading);
+  // console.log(data, loading);
 
   const bg =
     info &&

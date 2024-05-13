@@ -1,13 +1,22 @@
 import React, {useState} from 'react'
 import "./style.scss"
+
+
+
 const SwitchTab = ({data, setEndPoint}) => {
+
     const [selectedItem, setSelectedItem] = useState(0)
     const [move, setMove] = useState(0)
+
+
     const activeItem = (e, index)=>{
         setMove(index * 100)
         setSelectedItem(index)
         setEndPoint(e.toLowerCase())
     }
+
+
+    
   return (
     <div className='switchTab'>
       <div className="switchItems">

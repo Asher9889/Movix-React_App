@@ -22,7 +22,7 @@ const Popular = () => {
 
         <SwitchTab data={["Movie", "Tv"]} setEndPoint={setEndPoint} />
       </ContentWrapper>
-      <Carousel data={rawData} loading={loading} />
+      <Carousel data={rawData} loading={loading} endPoint={endPoint} />
     </div>
   );
 };

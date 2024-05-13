@@ -10,8 +10,10 @@ const TopRated = () => {
   
     const {data, loading} = useFetch(`/${endPoint}/top_rated`);
     const rawData = data?.results
-    console.log(rawData)
-    console.log(loading)
+    // console.log(rawData)
+    // console.log(loading)
+
+    // console.log(endPoint)
   
 
   return (
@@ -21,7 +23,7 @@ const TopRated = () => {
 
         <SwitchTab data={["Movie", "Tv"]} setEndPoint={setEndPoint} />
       </ContentWrapper>
-      <Carousel data={rawData} loading={loading} />
+      {data && endPoint && <Carousel data={rawData} loading={loading} endPoint={endPoint}/>}
     </div>
   );
 };

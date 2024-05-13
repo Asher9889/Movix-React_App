@@ -73,7 +73,62 @@
                     opacity: .5;
                     font-size: 14px;
                     margin-top: 10px;
+              
+              
                 }
+            
+            .genre-div{
+                position: absolute;
+                // background-color: cyan;
+                bottom: 23%;
+                right: 0%;
+                z-index: 0;
+                width: 55%;
+                // background-color: red;
+                margin-right: 2px;
+                display: flex;
+                flex-direction: column;
+
+                
+                // display: none;
+                @include sm{
+                    display: inline-block;
+                    display: flex;
+                }
+                p{
+                    font-size: 10px;
+                    padding: 3px 5px;
+                    white-space: nowrap;
+                    color: white;
+                    background-color: var(--pink);
+                    
+                    
+                }
+            }
+            .rating-div{
+                position: absolute;
+                background-color: white;
+                // padding: 2px;
+                border-radius: 50%;
+                bottom: 17%;
+                left: 0;
+                z-index: 1;
+                // @include sm {
+                //     width: 40px;
+                // }
+                .CircularProgressbar{
+                    .CircularProgressbar-text {
+                        // padding: 10px;
+                        font-size: 34px;
+                        font-weight: 700;
+                        fill: var(--black);
+                    }
+                    .CircularProgressbar-trail {
+                        stroke: transparent;
+                    }
+                }
+            }
+            
             }
         
         
