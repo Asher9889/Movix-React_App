@@ -7,11 +7,14 @@ import {Genres, RatingCircle} from "../../../components/index"
 import PlayIcon from '../../../components/playIcon/PlayIcon'
 import Play from "../../../assets/playIcon.svg"
 import dayjs from 'dayjs'
+import useFetch from '../../../hooks/useFetch'
 
 
 const DetailsBanner = ({data}) => {
   const {info} = useSelector((state)=> state.home)
   console.log(info)
+
+  const information = useFetch(`/`)
     
   return <>
     { data && info &&   
