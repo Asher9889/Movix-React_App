@@ -6,6 +6,7 @@ import Image from "../../../components/lazyLoadImage/Image"
 import {Genres, RatingCircle} from "../../../components/index"
 import PlayIcon from '../../../components/playIcon/PlayIcon'
 import Play from "../../../assets/playIcon.svg"
+import dayjs from 'dayjs'
 
 
 const DetailsBanner = ({data}) => {
@@ -37,11 +38,29 @@ const DetailsBanner = ({data}) => {
                     <img src={Play} />
                     {/* <PlayIcon /> */}
                   </span>
+                  <p className='play-text'>Watch Trailer</p>
 
                 </div>
 
                 <div className='overview'>
-                  <p>Overview</p>
+                  <p className='overview-title'>Overview</p>
+                  <p className='overview-content'>{data.overview}</p>
+                </div>
+
+                <div className='info'>
+                  <div className='info-text'>
+                    <p>Status:</p>
+                    <p className='info-content'>{data.status}</p>
+                   
+                  </div>
+                  <div className='info-text'>
+                    <p>Release Date:</p>
+                    <p className='info-content'>{dayjs(data.release_date).format("MMM DD, YYYY")}</p>
+                  </div>
+                  <div className='info-text'>
+                    <p>Runtime:</p>
+                    <p className='info-content'>{Math.floor(data.runtime/60)+ "h " + data.runtime%60 + "min" }</p>
+                  </div>
                 </div>
                 
               </div>

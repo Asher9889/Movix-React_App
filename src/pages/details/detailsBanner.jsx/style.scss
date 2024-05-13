@@ -6,6 +6,7 @@
     background-color: var(--black);
     margin-bottom: 50px;
     position: relative;
+  
 
     // background-color: red;
     .bgMobile {
@@ -59,7 +60,8 @@
             flex-direction: column;
             color: white;
             
-            @include md {
+            
+            @include sm {
                 flex-direction: row;
                 gap: 20px;
             }
@@ -116,7 +118,9 @@
                 }
                 .div-rate-play{
                     height: 40px;
+                    margin-top: 10px;
                     display: flex;
+                    align-items: center;
                     // background-color: pink;
                     width: fit-content;
                     gap: 20px;
@@ -129,13 +133,51 @@
                         color: white;
                     }
                     .play-div{
-                        width: 40px;
+                        width: 35px;
+                        @include sm{
+                            width: 40px;
+                        }
                     
                         img{
                             width: 100%;
                         }
                     }
+                    .play-text{
+                        font-size: 18px;
+                        color: rgb(255, 255, 0);
+                        &:hover{
+                           color: pink;
+                        }
+                    }
                     
+                    
+                }
+                .overview{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    .overview-title{
+                        font-size: 20px;
+                    }
+                    .overview-content{
+                        font-size: 14px;
+                        line-height: 18px;
+                        color: rgb(194, 186, 186);
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    }
+                }
+                .info{
+                    display: flex;
+                    gap: 40px;
+                    .info-text{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        .info-content{
+                            font-size: 14px;
+                            color: gray;
+                        }
+                    }
                 }
             }
     
