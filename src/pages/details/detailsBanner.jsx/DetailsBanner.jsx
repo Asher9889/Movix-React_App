@@ -8,12 +8,14 @@ import PlayIcon from "../../../components/playIcon/PlayIcon";
 import Play from "../../../assets/playIcon.svg";
 import dayjs from "dayjs";
 import useFetch from "../../../hooks/useFetch";
-import { useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
+import imdb from "../../../assets/imdb.png"
+import VideoPlay from "../../../components/videoPlay/VideoPlay";
 
 const DetailsBanner = ({ data }) => {
   const { info } = useSelector((state) => state.home);
   console.log(info);
-
+  console.log(data);
   const { id, mediaType } = useParams();
   console.log(id, mediaType);
 
@@ -49,6 +51,7 @@ const DetailsBanner = ({ data }) => {
             <div className="bannerDetails">
               <div className="left">
                 <Image src={info + "original" + data.poster_path} />
+                <Link target="_blank" to={`https://www.imdb.com/title/${data.imdb_id}`}><img className="imdb-img" src={imdb}/></Link>
               </div>
               <div className="right">
                 <p className="title">{data.title}</p>
@@ -60,11 +63,13 @@ const DetailsBanner = ({ data }) => {
                   <span className="details-rating">
                     <RatingCircle data={data.vote_average.toFixed(1)} />
                   </span>
-                  <span className="play-div">
+                  <Link to={`${mediaType}/${id}/video`}><span className="play-div">
                     <img src={Play} />
                     {/* <PlayIcon /> */}
+                    <p className="play-text">Watch Trailer</p>
                   </span>
-                  <p className="play-text">Watch Trailer</p>
+                  </Link>
+                  
                 </div>
 
                 <div className="overview">
@@ -109,14 +114,15 @@ const DetailsBanner = ({ data }) => {
                   <p>
                     Actors:
                     {Actors?.map((e) => (
-                      <span key={e.id}> {`${e.name}, `} </span>
+                      <span key={e.id}> {e.name} </span>
                     ))}
-                  </p>{" "}
+                  </p>
                 </div>
 
                 
               </div>
             </div>
+            <Outlet />
           </ContentWrapper>
         </div>
       )}

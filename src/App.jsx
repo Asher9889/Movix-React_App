@@ -7,6 +7,7 @@ import {Header, Footer} from "./components/index"
 import { useSelector } from 'react-redux';
 import { getApiData, getGenresData } from './store/reducers/homeSlice';
 import { useDispatch } from 'react-redux';
+import VideoPlay from './components/videoPlay/VideoPlay';
 
 function App() {
   const dispatch = useDispatch();
@@ -57,7 +58,11 @@ function App() {
      <Header/>
        <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/:mediaType/:id' element={<Details/>}/>
+          <Route path='/:mediaType/:id' element={<Details/>}>
+
+          <Route path='/:mediaType/:id/video' element={<VideoPlay/>}/>
+
+          </Route>
           <Route path='/search/:query' element={<SearchResults/>}/>
           <Route path='/explore/:mediaType' element={<Explore/>}/>
           <Route path='*' element={<PageNotFound/>}/>
