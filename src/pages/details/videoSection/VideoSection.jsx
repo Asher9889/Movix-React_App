@@ -9,7 +9,6 @@ import VideoPlay from "../../../components/videoPlay/VideoPlay";
 import { useDispatch } from "react-redux";
 
 const VideoSection = ({ res }) => {
-  const [videoID, setVideoID] = useState(null);
   const [show, setShow] = useState(false)
 
   const {mediaType, id} = useParams()
