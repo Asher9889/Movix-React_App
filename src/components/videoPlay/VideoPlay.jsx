@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "./style.scss"
 import ReactPlayer from 'react-player'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 
 
 const VideoPlay = () => { 
+  // const [show, setShow] = useState(false)
   const {mediaType, id} = useParams()
 
  const navigate = useNavigate()
@@ -18,7 +19,9 @@ const VideoPlay = () => {
 const handleCloseClick = () => {
   console.log("Close button clicked");
   e.stopPropagation()
+  // setShow(false)
   navigate(`/${mediaType}/${id}`);
+  // navigate(-1)
 };
 
   return (

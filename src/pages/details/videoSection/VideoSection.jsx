@@ -14,7 +14,7 @@ const VideoSection = ({ res }) => {
 
   const {mediaType, id} = useParams()
   const dispatch = useDispatch();
-  console.log(res)
+  // console.log(res)
 
   const videoShowHandle = (e)=>{
     dispatch(removeVideoData())
