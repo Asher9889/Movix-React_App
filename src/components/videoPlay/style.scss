@@ -1,3 +1,5 @@
+@import "../../mixins.scss";
+
 .videoPlayer-div{
     width: 100%;
     height: 100%;
@@ -8,8 +10,12 @@
     overflow: hidden;
     background: rgb(0,0,0);
     background: linear-gradient(90deg, rgba(0,0,0,0.8241421568627451) 0%, rgba(0,0,0,0.82) 35%, rgba(0,0,0,0.82) 100%);
-    align-items: center;
+    align-items: end;
+    // padding-right: 50px;
     justify-content: center;
+    @include sm{
+        align-items: center;
+    }
 
     .videoPlayer{
         // background-color: red;
@@ -18,8 +24,8 @@
     
     .close{
         // padding-right: -50px;
-        top: -30px;
-        right: -40px;
+        top: 0;
+        right: 0px;
         background-color: white;
         position: absolute;
     }

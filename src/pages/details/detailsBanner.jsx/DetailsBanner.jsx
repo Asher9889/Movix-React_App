@@ -4,7 +4,6 @@ import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import { useDispatch, useSelector } from "react-redux";
 import Image from "../../../components/lazyLoadImage/Image";
 import { Genres, RatingCircle } from "../../../components/index";
-import PlayIcon from "../../../components/playIcon/PlayIcon";
 import Play from "../../../assets/playIcon.svg";
 import dayjs from "dayjs";
 import useFetch from "../../../hooks/useFetch";
@@ -22,7 +21,7 @@ const DetailsBanner = ({ data, credit, res }) => {
   const navigate = useNavigate();
   const { info } = useSelector((state) => state.home);
 
-  // console.log(info);
+
   // console.log(data);
   const { id, mediaType } = useParams();
   // console.log(id, mediaType);
@@ -40,13 +39,15 @@ const DetailsBanner = ({ data, credit, res }) => {
 
 
   
-  const video = res?.data?.results
-  // console.log(video)
-  const trailer = video?.find(e => ["Official Trailer", "Original Trailer","International Trailer","Season 1 Trailer", "Trailer", "Official US Trailer | English Subtitles", "Official Preview [Subtitled]"].includes(e.name))
- console.log(trailer)
-  if(trailer) dispatch(getVideoData(trailer));
+  
 
- 
+console.log(res)
+  const trailer = res && res.find(e => ["Official Trailer", "Original Trailer","International Trailer","Season 1 Trailer", "Trailer", "Official US Trailer | English Subtitles", "Official Preview [Subtitled]"].includes(e.name))
+  // const trailer1 = res && res.data?.results?.filter((e)=> e.name ==="Official Trailer")
+  // console.log(trailer)
+  // console.log(trailer)
+  {trailer && dispatch(getVideoData(trailer));}
+
 
 
 
@@ -73,7 +74,7 @@ const DetailsBanner = ({ data, credit, res }) => {
                
               </div>
               <div className="right">
-                <p className="title">{data.title}</p>
+                <p className="title">{data.title || data.name}</p>
                 <p className="subTitle">{data.tagline}</p>
                 <span className="rating-span">
                   <Genres data={data.genres.map((e) => e.id)} />
@@ -142,9 +143,9 @@ const DetailsBanner = ({ data, credit, res }) => {
                 
               </div>
             </div>
-           <Outlet/>
             
           </ContentWrapper>
+           <Outlet/>
         </div>
       )}
     </>

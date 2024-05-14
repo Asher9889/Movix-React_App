@@ -1,11 +1,13 @@
 import React from 'react'
 import "./style.scss"
 import ReactPlayer from 'react-player'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 
 const VideoPlay = () => { 
+  const {mediaType, id} = useParams()
+
  const navigate = useNavigate()
 
  const {video} = useSelector((state)=> state.home)
@@ -21,12 +23,12 @@ const VideoPlay = () => {
       <ReactPlayer
         url={`https://www.youtube.com/watch?v=${video && video.key}`}
         controls="true"
-        width="720px"
+        width="350px"
         >
 
       </ReactPlayer>
       <div className="opacityLayer"></div>
-      <span className='close' onClick={()=>navigate(-1)}>Close</span>
+      {/* <span className='close' onClick={()=>navigate(`/${mediaType}`)} >Close</span> */}
 
     </div>
       
