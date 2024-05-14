@@ -13,9 +13,13 @@ const VideoPlay = () => {
  const {video} = useSelector((state)=> state.home)
 
 //  console.log(video)
- 
-
 //  console.log(trailer)
+
+const handleCloseClick = () => {
+  console.log("Close button clicked");
+  e.stopPropagation()
+  navigate(`/${mediaType}/${id}`);
+};
 
   return (
    <div onClick={()=>navigate(-1)} className='videoPlayer-div'>
@@ -28,7 +32,7 @@ const VideoPlay = () => {
 
       </ReactPlayer>
       <div className="opacityLayer"></div>
-      {/* <span className='close' onClick={()=>navigate(`/${mediaType}`)} >Close</span> */}
+      <span className='close' onClick={(e) => handleCloseClick(e)} >Close</span>
 
     </div>
       

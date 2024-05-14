@@ -4,7 +4,7 @@ import { ContentWrapper } from "../../../components";
 import { Link, Outlet, useParams } from "react-router-dom";
 import {Image} from "../../../components";
 import ReactPlayer from "react-player";
-import {getVideoData} from "../../../store/reducers/homeSlice"
+import {getVideoData, removeVideoData} from "../../../store/reducers/homeSlice"
 import VideoPlay from "../../../components/videoPlay/VideoPlay";
 import { useDispatch } from "react-redux";
 
@@ -17,12 +17,10 @@ const VideoSection = ({ res }) => {
   console.log(res)
 
   const videoShowHandle = (e)=>{
+    dispatch(removeVideoData())
     console.log("clicked")
     dispatch(getVideoData(e))
-    setInterval(()=>{
-
-      setShow(true)
-    },500)
+    setShow(true)
   }
 
   return (

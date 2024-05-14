@@ -46,7 +46,11 @@ console.log(res)
   // const trailer1 = res && res.data?.results?.filter((e)=> e.name ==="Official Trailer")
   // console.log(trailer)
   // console.log(trailer)
-  {trailer && dispatch(getVideoData(trailer));}
+
+  useEffect(()=>{
+
+    {trailer && dispatch(getVideoData(trailer));}
+  },[trailer])
 
 
 
