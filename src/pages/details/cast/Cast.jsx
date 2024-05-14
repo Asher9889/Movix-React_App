@@ -10,7 +10,7 @@ const Cast = ({credit}) => {
 
   const {info} = useSelector((state)=> state.home)
   const actors = credit && credit.cast.filter((e)=> e.known_for_department === "Acting")
-  console.log(actors);
+  // console.log(actors);
   // const url = {}
 
   return <>
