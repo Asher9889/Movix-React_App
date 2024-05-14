@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,9 +11,14 @@ import useFetch from "../../../hooks/useFetch";
 import { Link, Navigate, Outlet, useNavigate, useParams } from "react-router-dom";
 import imdb from "../../../assets/imdb.png"
 import VideoPlay from "../../../components/videoPlay/VideoPlay";
-import { getVideoData } from "../../../store/reducers/homeSlice";
-const DetailsBanner = ({ data }) => {
+import { getVideoData, getCastData} from "../../../store/reducers/homeSlice";
 
+
+
+const DetailsBanner = ({ data, credit, res }) => {
+
+
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { info } = useSelector((state) => state.home);
 
@@ -22,23 +27,27 @@ const DetailsBanner = ({ data }) => {
   const { id, mediaType } = useParams();
   // console.log(id, mediaType);
 
-  const { data: c } = useFetch(`/${mediaType}/${id}/credits`);
-  // console.log(c);
+  
 
-  const director = c && c.crew?.filter((e) => e.job === "Director");
+  const director = credit && credit.crew.filter((e) => e.job === "Director");
   // console.log(director);
 
-  const Actors = c && c.cast?.filter((e) => e.known_for_department === "Acting" && e.order < 4);
-  // console.log(Actors);
-  const res = useFetch(`/${mediaType}/${id}/videos`);
-  const video = res?.data?.results
-  console.log(video)
-  // const trailer1 = video?.filter((e) => e.type === "Trailer" && e.name === "Official Trailer")
-  const trailer = video?.find(e => ["Official Trailer", "Original Trailer","International Trailer","Season 1 Trailer", "Trailer", "Official US Trailer | English Subtitles"].includes(e.name))
+  const writers = credit && credit.crew.filter((e) => e.job === "Writer" || "Writing").slice(0,4);
+  // if(Actors) dispatch(getCastData(Actors));
 
-  // console.log(trailer1, trailer2)
-  const dispatch = useDispatch();
-  dispatch(getVideoData(trailer))
+ 
+
+
+
+  
+  const video = res?.data?.results
+  // console.log(video)
+  const trailer = video?.find(e => ["Official Trailer", "Original Trailer","International Trailer","Season 1 Trailer", "Trailer", "Official US Trailer | English Subtitles", "Official Preview [Subtitled]"].includes(e.name))
+ console.log(trailer)
+  if(trailer) dispatch(getVideoData(trailer));
+
+ 
+
 
 
 
@@ -61,7 +70,7 @@ const DetailsBanner = ({ data }) => {
             <div className="bannerDetails">
               <div className="left">
                 <Image src={info + "original" + data.poster_path} />
-               <img onClick={()=> window.open(`https://www.imdb.com/title/${data.imdb_id}` , "_blank", console.log("clicked"))} className="imdb-img" src={imdb}/>
+               
               </div>
               <div className="right">
                 <p className="title">{data.title}</p>
@@ -78,6 +87,7 @@ const DetailsBanner = ({ data }) => {
                     {/* <PlayIcon /> */}
                     <p className="play-text">Watch Trailer</p>
                   </span>
+                  <img onClick={()=> window.open(`https://www.imdb.com/title/${data.imdb_id}` , "_blank", console.log("clicked"))} className="imdb-img" src={imdb}/>
                  
                   
                 </div>
@@ -113,7 +123,7 @@ const DetailsBanner = ({ data }) => {
 
                 <div className="director">
                   <p>
-                    Director:
+                    Director :
                     {director?.map((e) => (
                       <span key={e.id}> {`${e.name}`} </span>
                     ))}
@@ -122,8 +132,8 @@ const DetailsBanner = ({ data }) => {
                 <hr />
                 <div className="director">
                   <p>
-                    Actors:
-                    {Actors?.map((e) => (
+                    Writers :
+                    {writers?.map((e) => (
                       <span key={e.id}> {e.name} </span>
                     ))}
                   </p>

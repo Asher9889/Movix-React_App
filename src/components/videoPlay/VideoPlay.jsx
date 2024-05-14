@@ -16,12 +16,12 @@ const VideoPlay = () => {
 //  console.log(trailer)
 
   return (
-   <div className='videoPlayer-div'>
+   <div onClick={()=>navigate(-1)} className='videoPlayer-div'>
     <div className='videoPlayer'>
       <ReactPlayer
         url={`https://www.youtube.com/watch?v=${video && video.key}`}
         controls="true"
-        width="350px"
+        width="720px"
         >
 
       </ReactPlayer>

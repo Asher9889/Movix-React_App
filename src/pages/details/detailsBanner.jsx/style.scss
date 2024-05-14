@@ -2,11 +2,11 @@
 
 .detailsBanner {
     width: 100%;
-    // height: 100vh;
+    height: fit-content;
     background-color: var(--black);
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     position: relative;
-  
+
 
     // background-color: red;
     .bgMobile {
@@ -43,14 +43,15 @@
     .opacity-layer {
         width: 100%;
         height: 200px;
-        // background: linear-gradient(180deg,
-        //         rgba(4, 21, 45, 0) 0%,
-        //         #04152d 79.17%);
+        background: linear-gradient(180deg,
+                rgba(4, 21, 45, 0) 0%,
+                #04152d 79.17%);
         position: absolute;
         bottom: 0;
         left: 0;
     }
-    .contentWrapper{
+
+    .contentWrapper {
         .bannerDetails {
             width: 100%;
             padding-top: 60px;
@@ -58,75 +59,74 @@
             flex-direction: column;
             color: white;
             // background-color: red;
-            
+
             @include sm {
                 flex-direction: row;
                 gap: 20px;
-                
+
             }
-    
+
             .left {
                 width: 100%;
                 padding-top: 40px;
                 height: 100%;
+
                 @include sm {
                     max-width: 350px;
                 }
-    
+
                 // background-color: red;
-    
+
                 .lazy-load-image-background {
                     width: 100%;
                     height: 100%;
-    
-                    img{
+
+                    img {
                         width: 100%;
                         height: 100%;
-                        object-fit: cover;
+                        object-fit: contain;
                         object-position: top;
                         border-radius: 5px;
                         margin-bottom: 20px;
                         filter: drop-shadow(0px 0px 5px #000);
-                        @include sm{
-                            height: 450px;
+
+                        @include sm {
+                            height: 500px;
                         }
                     }
                 }
-            .imdb-img{
-                margin-top: 20px;
-                width: 30px;
-                display: none;
-                position: relative;
-                z-index: 20;
-                @include sm{
-                    display: block;
-                }
+
+
             }
-            
-            }
-            .right{
+
+            .right {
                 padding-top: 30px;
                 display: flex;
                 gap: 15px;
+                position: relative;
                 flex-direction: column;
-                @include sm{
+
+                @include sm {
                     padding-top: 45px;
                 }
 
-                .title{
+                .title {
                     font-size: 28px;
                     font-family: "Verdana", "sans-serif";
                 }
-                .subTitle{
+
+                .subTitle {
                     font-size: 20px;
                     font-style: italic;
                     color: gray;
                 }
-                .rating-span{
+
+                .rating-span {
                     // background-color: red;
-                    display: flex;               
+                    display: flex;
                 }
-                .div-rate-play{
+
+                .div-rate-play {
                     height: 40px;
                     margin-top: 10px;
                     margin-bottom: 10px;
@@ -137,7 +137,7 @@
                     width: fit-content;
                     // gap: 20px;
 
-                    .details-rating{
+                    .details-rating {
                         // background-color: var(--black3) ;
                         width: fit-content;
                         border-radius: 50%;
@@ -145,7 +145,8 @@
                         margin-right: 20px;
                         color: white;
                     }
-                    .play-div{
+
+                    .play-div {
                         width: 35px;
                         margin-right: 10px;
                         display: flex;
@@ -153,67 +154,89 @@
                         gap: 10px;
                         white-space: nowrap;
                         position: relative;
-                        z-index: 20;
+                        z-index: 0;
 
-                        
-                        @include sm{
+
+                        @include sm {
                             width: 40px;
                         }
-                    
-                        img{
+
+                        img {
                             width: 100%;
                         }
                     }
-                    .play-text{
+
+                    .play-text {
                         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
                         font-size: 16px;
                         // background-color: red;
                         color: pink;
-                        &:hover{
+
+                        &:hover {
                             color: rgb(255, 255, 0);
                         }
                     }
-                    
-                    
-                    
+
+
+
+                    .imdb-img {
+                        // margin-top: 8px;
+                        width: 35px;
+                        // display: none;
+                        position: relative;
+                        left: 85%;
+                        // z-index: 20;
+
+                        
+                    }
+
+
+
                 }
-                .overview{
+
+                .overview {
                     display: flex;
                     flex-direction: column;
                     gap: 10px;
-                    max-width: 400px;
-                    .overview-title{
+                    max-width: 500px;
+
+                    .overview-title {
                         font-size: 20px;
                     }
-                    .overview-content{
+
+                    .overview-content {
                         font-size: 14px;
                         line-height: 18px;
                         color: rgb(194, 186, 186);
                         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                     }
                 }
-                .info{
+
+                .info {
                     display: flex;
                     gap: 40px;
-                    .info-text{
+
+                    .info-text {
                         display: flex;
                         flex-direction: column;
                         gap: 5px;
-                        .info-content{
+
+                        .info-content {
                             font-size: 14px;
                             color: gray;
                         }
                     }
                 }
-                .director{
-                    span{
+
+                .director {
+                    span {
                         color: gray;
                         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
                     }
                 }
             }
-    
+
         }
     }
 }

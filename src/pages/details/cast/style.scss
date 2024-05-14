@@ -1,0 +1,65 @@
+.cast-div{
+    width: 100%;
+    // background-color: red;
+    // background-color: var(--black);
+    margin-bottom: 30px;
+    .contentWrapper{
+
+        width: 100%;
+        .top-casts{
+            font-size: 22px;
+            color: white;
+            margin-bottom: 15px;
+        }
+        .items{
+            width: 100%;
+            display: flex;
+            // flex-direction: column;
+            gap: 20px;
+            // align-items: 
+            overflow-y: hidden;
+            overflow-x: scroll;
+            flex-wrap: nowrap;
+            // background-color: green;
+            .item{
+                width: 120px;
+                height: 200px;
+                display: flex;
+                flex-direction: column;
+                // justify-content: center;
+                padding: 1px;
+                // background-color: red;
+                .lazy-load-image-background{
+                    width: 120px;
+                    height: 120px;
+                    // background-color: red;
+                    img{
+                        width: 100%;
+                        height: 120px;
+                        border-radius: 50%;
+                        
+                        object-fit: cover;
+                        object-position: top;
+                        
+                    }
+             
+             
+                }
+            
+            .subName{
+                margin-top: 5px;
+                font-size: 14px;
+                // background-color: red;
+                text-align: center;
+                color: gray;
+                white-space: nowrap;
+            }
+            .name{
+                text-align: center;
+                color: white;
+                margin-top: 10px;
+            }
+            }
+        }
+    }
+}
