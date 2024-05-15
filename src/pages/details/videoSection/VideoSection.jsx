@@ -18,7 +18,7 @@ const VideoSection = ({ res }) => {
   const videoShowHandle = (e)=>{
     // e.preventDefault()
     // e.stopPropagation()
-    // dispatch(removeVideoData())
+    dispatch(removeVideoData())
     console.log("clicked")
     dispatch(getVideoData(e))
     setShow(true)

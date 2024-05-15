@@ -10,7 +10,7 @@ const VideoPlay = ({setShow}) => {
   const {mediaType, id} = useParams()
 
  const navigate = useNavigate()
-
+  // const el = document.querySelector("videoPlayer-div")
  const {video} = useSelector((state)=> state.home)
 
 //  console.log(video)
@@ -19,7 +19,8 @@ const VideoPlay = ({setShow}) => {
 const handleCloseClick = (e) => {
   console.log("Close button clicked");
   e.stopPropagation()
-  // setShow(false)
+  setShow(false)
+  // el.scrollTop = 0
   navigate(-1);
   // navigate(-1)
 };
