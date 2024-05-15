@@ -10,7 +10,7 @@ const HeroBanner = () => {
   const { info } = useSelector((state) => state.home);
   const navigate = useNavigate();
   const [wallpaper, setWallpaper] = useState();
-  const [query, setQuery] = useState();
+  const [query, setQuery] = useState("");
 
   const searchInputHandle = (e) => {
     if (e.key === "Enter" && query.length > 0) {
@@ -51,8 +51,10 @@ const HeroBanner = () => {
             <input
               onKeyUp={searchInputHandle}
               onChange={(e) => setQuery(e.target.value)}
+              value={query}
+
               type="text"
-              placeholder="search for movie and tv shows..."
+              placeholder="search for movie and tv shows...."
             />
             <button>search</button>
           </div>

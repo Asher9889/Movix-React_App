@@ -19,7 +19,7 @@ const Similar = ({res}) => {
   return (
     <div className="trending">
       <ContentWrapper>
-        <p>Recommendations</p>
+        <p>Similar</p>
 
         {/* <SwitchTab data={["Movie", "Tv"]} setEndPoint={setEndPoint} /> */}
       </ContentWrapper>

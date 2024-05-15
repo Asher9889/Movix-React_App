@@ -1,0 +1,43 @@
+.searchResults{
+    // background-color: red;
+    padding-top: 60px;
+    .items{
+        // background-color: green;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding-top: 15px;
+        margin: 0 auto;
+        .item{
+            width: 150px;
+            height: 300px;
+            // background-color: pink;
+            .lazy-load-image-background{
+                // background-color: blue;
+                width: 150px;
+                height: 220px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 5px;
+
+                }
+            }
+        }
+    .title{
+        font-size: 18px;
+        line-height: 26px;
+        margin: 5px 5px;
+        color: white;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        // text-align: center;
+        // text-wrap: nowrap;
+    }
+    .date{
+        color: gray;
+    }
+    
+    }
+}

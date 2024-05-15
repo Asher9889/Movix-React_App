@@ -5,9 +5,10 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 
-const VideoPlay = ({setShow}) => { 
+const VideoPlay = ({ handleCloseClick}) => { 
   // const [show, setShow] = useState(false)
   const {mediaType, id} = useParams()
+  // console.log(setShow)
 
  const navigate = useNavigate()
   // const el = document.querySelector("videoPlayer-div")
@@ -16,14 +17,14 @@ const VideoPlay = ({setShow}) => {
 //  console.log(video)
 //  console.log(trailer)
 
-const handleCloseClick = (e) => {
-  console.log("Close button clicked");
-  e.stopPropagation()
-  setShow(false)
-  // el.scrollTop = 0
-  navigate(-1);
-  // navigate(-1)
-};
+// const handleCloseClick = (e) => {
+//   console.log("Close button clicked");
+//   e.stopPropagation()
+//   setShow(false)
+//   // el.scrollTop = 0
+//   navigate(-1);
+//   // navigate(-1)
+// };
 
   return (
    <div onClick={()=>navigate(-1)} className='videoPlayer-div'>

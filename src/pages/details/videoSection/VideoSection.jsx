@@ -25,6 +25,15 @@ const VideoSection = ({ res }) => {
     navigate(`/${mediaType}/${id}`)
   }
 
+  const handleCloseClick = (e) => {
+    console.log("Close button clicked");
+    e.stopPropagation()
+    setShow(false)
+    // el.scrollTop = 0
+    navigate(-1);
+    // navigate(-1)
+  };
+
   return (
     <div className="official-video">
       <ContentWrapper>
@@ -48,7 +57,7 @@ const VideoSection = ({ res }) => {
         </div>
       </ContentWrapper>
       
-      {show && <VideoPlay setShow={setShow}/>}
+      {show && <VideoPlay setShow={setShow} handleCloseClick={handleCloseClick} />}
     </div>
   );
 };
