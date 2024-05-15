@@ -2,6 +2,7 @@
 
 .official-video{
     width: 100%;
+    // height: 100%;
     margin-bottom: 30px;
     .contentWrapper{
         .name{
@@ -36,17 +37,14 @@
                 }
                     img{
                         width: 100%;
-                        height: 100%;
+                        // height: 100%;
                         border-radius: 10px;
                     }
             
             
                 }
             
-            .reactPlayer{
-                position: relative;
-                z-index: 40;
-            }
+            
             }
         }
     }

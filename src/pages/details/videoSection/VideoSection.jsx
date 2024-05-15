@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./style.scss";
 import { ContentWrapper } from "../../../components";
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Link, Navigate, Outlet, useNavigate, useParams } from "react-router-dom";
 import {Image} from "../../../components";
 import ReactPlayer from "react-player";
 import {getVideoData, removeVideoData} from "../../../store/reducers/homeSlice"
@@ -10,16 +10,19 @@ import { useDispatch } from "react-redux";
 
 const VideoSection = ({ res }) => {
   const [show, setShow] = useState(false)
-
+  const navigate = useNavigate();
   const {mediaType, id} = useParams()
   const dispatch = useDispatch();
   // console.log(res)
 
   const videoShowHandle = (e)=>{
-    dispatch(removeVideoData())
+    // e.preventDefault()
+    // e.stopPropagation()
+    // dispatch(removeVideoData())
     console.log("clicked")
     dispatch(getVideoData(e))
     setShow(true)
+    navigate(`/${mediaType}/${id}`)
   }
 
   return (
@@ -32,16 +35,20 @@ const VideoSection = ({ res }) => {
               <div key={e.id} onClick={()=> videoShowHandle(e)}  className="item">
                 <Image src={`https://img.youtube.com/vi/${e.key}/mqdefault.jpg`} >
                 </Image>
+                {console.log(" ai am from video section")}
                 {/* <ReactPlayer className="reactPlayer" src={`https://www.youtube.com/watch?v=${res && res.key}`}/> */}
                 
                 {/* {e.name} */}
                 {/* <video src=""></video> */}
+                
               </div>
+              
             // </a>
           ))}
         </div>
       </ContentWrapper>
-      {show && <VideoPlay />}
+      
+      {show && <VideoPlay setShow={setShow}/>}
     </div>
   );
 };

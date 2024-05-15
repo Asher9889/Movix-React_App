@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 
-const VideoPlay = () => { 
+const VideoPlay = ({setShow}) => { 
   // const [show, setShow] = useState(false)
   const {mediaType, id} = useParams()
 
@@ -16,11 +16,11 @@ const VideoPlay = () => {
 //  console.log(video)
 //  console.log(trailer)
 
-const handleCloseClick = () => {
+const handleCloseClick = (e) => {
   console.log("Close button clicked");
   e.stopPropagation()
   // setShow(false)
-  navigate(`/${mediaType}/${id}`);
+  navigate(-1);
   // navigate(-1)
 };
 
@@ -30,7 +30,8 @@ const handleCloseClick = () => {
       <ReactPlayer
         url={`https://www.youtube.com/watch?v=${video && video.key}`}
         controls="true"
-        width="350px"
+        width="100%"
+        height="100%"
         >
 
       </ReactPlayer>
