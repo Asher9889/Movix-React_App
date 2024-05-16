@@ -16,16 +16,16 @@ const TopRated = () => {
     // console.log(endPoint)
   
 
-  return (
-    <div className="trending">
+  return <>
+    {rawData ? <div className="trending">
       <ContentWrapper>
         <p>Top Rated</p>
 
         <SwitchTab data={["Movie", "Tv"]} setEndPoint={setEndPoint} />
       </ContentWrapper>
       {data && endPoint && <Carousel data={rawData} loading={loading} endPoint={endPoint}/>}
-    </div>
-  );
+    </div> : null}
+    </>
 };
 
 export default TopRated;

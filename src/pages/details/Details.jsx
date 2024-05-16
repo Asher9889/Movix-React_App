@@ -32,15 +32,15 @@ const Details = () => {
     
   const similar = s && s.results
 
-  return (
-    <div>
+  return <>
+    {response && res && r && s && <div>
       <DetailsBanner data={data} credit={credit} res={videoData} />
       <Cast credit={credit} />
       <VideoSection res={videoData} />
       <Recommended res={recommend} />
       <Similar res={similar}/>
-    </div>
-  );
+    </div>}
+    </>
 };
 
 export default Details;

@@ -33,6 +33,7 @@ const VideoPlay = ({ handleCloseClick}) => {
         url={`https://www.youtube.com/watch?v=${video && video.key}`}
         controls="true"
         width="100%"
+        height="100%"
         >
 
       </ReactPlayer>

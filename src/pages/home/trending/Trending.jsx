@@ -12,16 +12,16 @@ const Trending = () => {
     console.log(loading)
   
 
-  return (
-    <div className="trending">
+  return <>
+    {rawData ? <div className="trending">
       <ContentWrapper>
         <p>Trending</p>
 
         <SwitchTab data={["Day", "Week"]} setEndPoint={setEndPoint} />
       </ContentWrapper>
       <Carousel data={rawData} loading={loading} />
-    </div>
-  );
+    </div> : null}
+    </>
 };
 
 export default Trending;

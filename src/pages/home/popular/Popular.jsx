@@ -15,16 +15,16 @@ const Popular = () => {
     console.log(loading)
   
 
-  return (
-    <div className="trending">
+  return <>
+    {rawData ? <div className="trending">
       <ContentWrapper>
         <p>What's Popular</p>
 
         <SwitchTab data={["Movie", "Tv"]} setEndPoint={setEndPoint} />
       </ContentWrapper>
       <Carousel data={rawData} loading={loading} endPoint={endPoint} />
-    </div>
-  );
-};
+    </div> : null}
+    </>
+}
 
 export default Popular;
