@@ -25,13 +25,13 @@ import React, { useEffect, useState } from 'react'
         console.log(res)
         const newData = res && res.results
         console.log(newData)
-        if (newData) {
-         setNewData((prev)=> [...prev, ...newData])
-          setPage(page + 1);
-        }
+        setNewData((prev)=> [...prev, ...newData])
+        setPage(page + 1);
+        
+      }
         
         // setPage(page + 1)
-      }
+      
     useEffect(()=>{
       setNewData([])
       setPage(1)
