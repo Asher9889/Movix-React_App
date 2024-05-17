@@ -4,6 +4,7 @@ import ReactPlayer from 'react-player'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeVideoData } from '../../store/reducers/homeSlice'
+import ContentWrapper from '../contentWrapper/ContentWrapper'
 
 
 const VideoPlay = ({setShowTrailer, setShow, videoKey}) => { 
@@ -35,19 +36,22 @@ const handleCloseClick = (e) => {
 
   return (
    <div  className='videoPlayer-div'>
+    <ContentWrapper>
+
     <div className='videoPlayer'>
       <ReactPlayer
         url={`https://www.youtube.com/watch?v=${videoKey}`}
         controls="true"
         width="100%"
-        // height="100%"
+        height="100%"
         >
 
       </ReactPlayer>
-      <div className="opacityLayer"></div>
       <span className='close' onClick={(e) => handleCloseClick(e)} >Close</span>
 
     </div>
+    </ContentWrapper>
+    <div className="opacityLayer"></div>
       
    </div>
   )
