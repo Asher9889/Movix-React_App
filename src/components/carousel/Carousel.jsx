@@ -24,7 +24,7 @@ const Carousel = ({ data, loading, endPoint }) => {
   //   if(amount > 1000) setAmount(1000)
   //   setAmount(amount - 150)
   // }
-  console.log(endPoint)
+  // console.log(endPoint)
 
   return (
     <div className="carousel">

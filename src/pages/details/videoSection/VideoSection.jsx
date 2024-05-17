@@ -1,15 +1,16 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./style.scss";
 import { ContentWrapper } from "../../../components";
 import { Link, Navigate, Outlet, useNavigate, useParams } from "react-router-dom";
 import {Image} from "../../../components";
 import ReactPlayer from "react-player";
-import {getVideoData, removeVideoData} from "../../../store/reducers/homeSlice"
+import {getVideoData, removeVideoData, getOfficialVideosData} from "../../../store/reducers/homeSlice"
 import VideoPlay from "../../../components/videoPlay/VideoPlay";
 import { useDispatch } from "react-redux";
 
 const VideoSection = ({ res }) => {
   const [show, setShow] = useState(false)
+  const [videoKey, setVideoKey] = useState("")
   const navigate = useNavigate();
   const {mediaType, id} = useParams()
   const dispatch = useDispatch();
@@ -18,11 +19,13 @@ const VideoSection = ({ res }) => {
   const videoShowHandle = (e)=>{
     // e.preventDefault()
     // e.stopPropagation()
-    dispatch(removeVideoData())
+    setShow(false)
+    // dispatch(removeVideoData())
     console.log("clicked")
-    dispatch(getVideoData(e))
+    dispatch(getOfficialVideosData(e))
+    setVideoKey(e.key)
     setShow(true)
-    navigate(`/${mediaType}/${id}`)
+    // navigate(`/${mediaType}/${id}`)
   }
 
   const handleCloseClick = (e) => {
@@ -33,6 +36,10 @@ const VideoSection = ({ res }) => {
     navigate(-1);
     // navigate(-1)
   };
+
+  // useEffect(()=>{
+  //   dispatch(removeVideoData())
+  // },[handleCloseClick])
 
   return (
     <div className="official-video">
@@ -57,7 +64,7 @@ const VideoSection = ({ res }) => {
         </div>
       </ContentWrapper>
       
-      {show && <VideoPlay setShow={setShow} handleCloseClick={handleCloseClick} />}
+      {show && <VideoPlay setShow={setShow} handleCloseClick={handleCloseClick} videoKey={videoKey} />}
     </div>
   );
 };

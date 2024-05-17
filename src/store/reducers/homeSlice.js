@@ -4,6 +4,7 @@ const initialState = {
     info: null,
     genres: null,
     video: null,
+    officialVideos: null,
     cast: null,
 }
 
@@ -32,6 +33,14 @@ export const homeSlice = createSlice({
 
         getCastData: (state, action) =>{
             state.cast = action.payload;
+        },
+
+        getOfficialVideosData: (state, action) =>{
+            state.officialVideos = action.payload;
+        },
+
+        removeOfficialVideosData: (state, action) =>{
+            state.officialVideos = "";
         }
         
 
@@ -39,5 +48,5 @@ export const homeSlice = createSlice({
     }
 })
 
-export const {getApiData, removeApiData, getGenresData, getVideoData, getCastData, removeVideoData} = homeSlice.actions;
+export const {getApiData, removeApiData, getGenresData, getVideoData, getCastData, removeVideoData, getOfficialVideosData,removeOfficialVideosData } = homeSlice.actions;
 export default homeSlice.reducer;

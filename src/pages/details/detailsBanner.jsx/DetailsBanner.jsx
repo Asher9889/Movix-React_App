@@ -10,12 +10,13 @@ import useFetch from "../../../hooks/useFetch";
 import { Link, Navigate, Outlet, useNavigate, useParams } from "react-router-dom";
 import imdb from "../../../assets/imdb.png"
 import VideoPlay from "../../../components/videoPlay/VideoPlay";
-import { getVideoData, getCastData} from "../../../store/reducers/homeSlice";
+import { getVideoData, getCastData, removeVideoData} from "../../../store/reducers/homeSlice";
 
 
 
 const DetailsBanner = ({ data, credit, res }) => {
-
+  const [showTrailer, setShowTrailer] = useState(false);
+  const [trailerKey, setTrailerKey] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -41,19 +42,35 @@ const DetailsBanner = ({ data, credit, res }) => {
   
   
 
-console.log(res)
-  const trailer = res && res.find(e => ["Official Trailer", "Original Trailer","International Trailer","Season 1 Trailer", "Trailer", "Official US Trailer | English Subtitles", "Official Preview [Subtitled]"].includes(e.name))
+  console.log(res)
+  // const trailer = res && res.find(e => ["Official Trailer", "Original Trailer","International Trailer","Season 1 Trailer", "Trailer", "Official US Trailer | English Subtitles", "Official Preview [Subtitled]"].includes(e.name))
   // const trailer1 = res && res.data?.results?.filter((e)=> e.name ==="Official Trailer")
-  // console.log(trailer)
   // console.log(trailer)
 
   useEffect(()=>{
+    matchingValues()
+    // {trailer && dispatch(getVideoData(trailer))}
+    return(()=>{
+      dispatch(removeVideoData())
+    })
+  },[res])
 
-    {trailer && dispatch(getVideoData(trailer));}
-  },[trailer])
 
+  let matchingData = []
 
-
+  const matchingValues = ()=> {
+    if(res){
+      for(let i = 0; i < res.length; i++){
+        if(res[i].name.includes("Official Trailer", "Trailer", "Official Trailer [Subtitled]")){
+        // res[i].some((e) => e.includes("Official Trailer"));
+        matchingData.push(res[i])
+        console.log(res[i].key)
+       dispatch(getVideoData(res[i]))
+       setTrailerKey(res[i].key)}
+      }
+    }
+  }
+  console.log(matchingData)
 
 
   return (
@@ -87,7 +104,7 @@ console.log(res)
                   <span className="details-rating">
                     <RatingCircle data={data.vote_average.toFixed(1)} />
                   </span>
-                  <span onClick={()=> navigate(`/${mediaType}/${id}/video`)} className="play-div">
+                  <span onClick={()=> setShowTrailer(true)} className="play-div">
                     <img src={Play} />
                     {/* <PlayIcon /> */}
                     <p className="play-text">Watch Trailer</p>
@@ -149,7 +166,7 @@ console.log(res)
             </div>
             
           </ContentWrapper>
-           <Outlet/>
+          {showTrailer && <VideoPlay setShowTrailer={setShowTrailer} videoKey={trailerKey}/>}
         </div>
       )}
     </>
