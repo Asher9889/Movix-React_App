@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import "./style.scss"
 import ReactPlayer from 'react-player'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -33,6 +33,10 @@ const handleCloseClick = (e) => {
   // el.scrollTop = 0
   // navigate(-1)
 };
+
+  // useEffect(()=>{
+  //   VideoPlay()
+  // },[videoKey])
 
   return (
    <div  className='videoPlayer-div'>

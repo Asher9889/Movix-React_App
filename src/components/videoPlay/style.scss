@@ -1,37 +1,40 @@
 @import "../../mixins.scss";
 
 .videoPlayer-div{
-    width: 100%;
+    width: 100vw;
     // max-width: 1200px;
-    max-height: 800px;
-    position: absolute;
-    aspect-ratio: 16/9;
-    // opacity: 0.12;
-    // top: 0;
-    // padding: 20px;
-    top: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    // padding: 20px;
-    overflow: hidden;
-    background: rgba(0,0,0, 1);
-    background: linear-gradient(90deg, rgba(0,0,0,0.8241421568627451) 0%, rgba(0,0,0,0.82) 35%, rgba(0,0,0,0.82) 100%);
-    // background-color: red;
-   
+        height: 580px;
+        height: 50vh;
+        max-height: 800px;
+        position: absolute;
+        aspect-ratio: 16/9;
+        // opacity: 0.12;
+        // top: 0;
+        // padding: 20px;
+        top: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // padding: 20px;
+        overflow: hidden;
+        z-index: 50;
+        background: linear-gradient(90deg, rgba(0,0,0,0.8241421568627451) 0%, rgba(0,0,0,0.82) 35%, rgba(0,0,0,0.82) 100%);
+        background: rgba(1,1,1, 0.95);
+        // background-color: red;
+        
+        // background-color: red;
     // padding-right: 50px;
     justify-content: center;
-    // @include sm{
-    //     align-items: top;
-    //     // height: 100%;
-    // }
+    @include sm{
+        height: 70vh;
+        
+    }
 
     .videoPlayer{
         // background-color: red;
         position: relative;
         aspect-ratio: 16/9;
         width: 100%;
-        // height: 100%;
         display: flex;
         z-index: 50;
         justify-content: center;
