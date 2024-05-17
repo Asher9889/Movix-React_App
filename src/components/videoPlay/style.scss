@@ -4,7 +4,7 @@
     width: 100vw;
     // max-width: 1200px;
         height: 580px;
-        height: 50vh;
+        height: 90vh;
         max-height: 800px;
         position: absolute;
         aspect-ratio: 16/9;
@@ -25,10 +25,10 @@
         // background-color: red;
     // padding-right: 50px;
     justify-content: center;
-    @include sm{
-        height: 70vh;
+    // @include sm{
+    //     height: 90vh;
         
-    }
+    // }
 
     .videoPlayer{
         // background-color: red;
