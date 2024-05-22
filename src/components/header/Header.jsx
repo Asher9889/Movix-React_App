@@ -13,6 +13,7 @@ import demo from "../../assets/demo.jpg"
 import Image from "../lazyLoadImage/Image";
 import { useSelector } from "react-redux";
 import unavailable from "../../assets/unavailable.jpg"
+import { useFirebase } from "../../context/FirebaseContext";
 
 const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -27,6 +28,13 @@ const Header = () => {
 
 
   const {info} = useSelector((state)=> state.home)
+
+  const {signOutUser} = useFirebase();
+
+  const logoutHandle = ()=>{
+    signOutUser();
+    navigate("/login")
+  }
 
   const showMenu = () => {
     setMobileMenu(true);
@@ -124,6 +132,8 @@ const Header = () => {
               <li className="mobileMenuItems" onClick={()=>menuNavigationHandle("movie")}>Movies</li>
               <hr />
               <li className="mobileMenuItems" onClick={()=>menuNavigationHandle("tv")}>TV Shows</li>
+              <hr />
+              <li className="mobileMenuItems" onClick={logoutHandle}>Logout</li>
             </ul>
           </div>
         ) : null}

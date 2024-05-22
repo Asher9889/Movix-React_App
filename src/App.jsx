@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import './App.scss'
 import fetchDataFromApi from './utils/axios';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import {Home, SearchResults, Explore, Details, PageNotFound } from "./pages/index"
+import {Home, SearchResults, Explore, Details, PageNotFound, Login, CreateAccount } from "./pages/index"
 import {Header, Footer} from "./components/index"
 import { useSelector } from 'react-redux';
 import { getApiData, getGenresData } from './store/reducers/homeSlice';
@@ -11,8 +11,6 @@ import VideoPlay from './components/videoPlay/VideoPlay';
 
 function App() {
   const dispatch = useDispatch();
-  
-
 
   useEffect(() => {
     getDataFromApi()
@@ -58,6 +56,8 @@ function App() {
      <Header/>
        <Routes>
           <Route path='/' element={<Home/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/signup' element={<CreateAccount/>}/>
           <Route path='/:mediaType/:id' element={<Details/>}>
 
             {/* <Route path='/:mediaType/:id/video' element={<VideoPlay/>}/> */}
