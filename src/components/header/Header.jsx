@@ -29,6 +29,8 @@ const Header = () => {
 
   const {info} = useSelector((state)=> state.home)
 
+  const {isLoggedIn} = useFirebase()
+
   const {signOutUser} = useFirebase();
 
   const logoutHandle = async ()=>{
@@ -133,8 +135,8 @@ const Header = () => {
               <li className="mobileMenuItems" onClick={()=>menuNavigationHandle("movie")}>Movies</li>
               <hr />
               <li className="mobileMenuItems" onClick={()=>menuNavigationHandle("tv")}>TV Shows</li>
-              <hr />
-              <li className="mobileMenuItems" onClick={logoutHandle}>Logout</li>
+              {isLoggedIn && <> <hr />
+              <li className="mobileMenuItems" onClick={logoutHandle}>Logout</li> </>}
             </ul>
           </div>
         ) : null}

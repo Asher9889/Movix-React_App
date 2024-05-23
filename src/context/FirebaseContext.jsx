@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { createContext } from "react"
 import { initializeApp} from "firebase/app"
 import { getAnalytics } from "firebase/analytics";
-import { getAuth , createUserWithEmailAndPassword, signInWithEmailAndPassword , onAuthStateChanged , signOut, GoogleAuthProvider , signInWithPopup } from "firebase/auth"
+import { getAuth , createUserWithEmailAndPassword, signInWithEmailAndPassword , onAuthStateChanged , signOut, GoogleAuthProvider , signInWithPopup , signInWithRedirect} from "firebase/auth"
 import { useNavigate } from "react-router-dom";
 
 const firebaseConfig = {
@@ -57,11 +57,13 @@ export const FirebaseProvider = (props)=>{
         console.log("user succesfully signout")
     }
 
-    const signInWithGoogle = async()=>{
-        const user = await signInWithPopup(auth, provider)
-        console.log(user)
-        console.log("Auth with google successfully completed")
-    }
+    const signInWithGoogle = () => {
+        if (/Mobi|Android/i.test(navigator.userAgent)) {
+          signInWithRedirect(auth, provider);
+        } else {
+          signInWithPopup(auth, provider);
+        }
+      };
 
     const current_user = auth.currentUser
     // console.log(current_user)
