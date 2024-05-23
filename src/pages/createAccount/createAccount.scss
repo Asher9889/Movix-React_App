@@ -7,17 +7,23 @@
     .login{
         width: 100%;
         // background-color: yellow;
-        display: flex;
-        justify-content: center;
+        @include sm{
+            display: flex;
+            justify-content: center;
+        }
         
         .form{
-            width: 40%;
+            width: 100%;
+            padding-top: 5vh;
             margin-top: 10%;
             // background-color: green;
+            @include sm{
+                width: 40%;
+                padding-top: 0;
+            }
             form{
                 width: 100%;
                 color: white;
-               
                 // background-color: aqua;
                 .title{
                     font-size: 32px;

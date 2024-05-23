@@ -3,27 +3,39 @@
 .login-div{
     margin-top: 12vh;
     width: 100vw;
+    padding-bottom: 50px;
     // background-color: red;
     .login{
         width: 100%;
         // background-color: yellow;
-        display: flex;
-        justify-content: center;
+        position: relative;
+        @include sm{
+            display: flex;
+            justify-content: center;
+        }
         
         .form{
-            width: 40%;
+            width: 100%;
+            padding-top: 5vh;
             margin-top: 10%;
             // background-color: green;
+            @include sm{
+                width: 40%;
+                padding-top: 0;
+            }
             form{
                 width: 100%;
                 color: white;
-               
                 // background-color: aqua;
                 .title{
+                    margin-top: 50px;
                     font-size: 32px;
                     font-weight: 500;
                     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                     margin-bottom: 10px;
+                    @include sm{
+                        margin-top: 0;
+                    }
 
                 }
                 .subtitle{
@@ -59,9 +71,10 @@
         
             .login-btn{
                 margin-top: 20px;
+                margin-bottom: 20px;
                 color: gray;
                 font-size: 16px;
-                // text-align: center;
+                text-align: center;
                 // background-color: red;
                 span{
                     color: blue;
@@ -69,6 +82,28 @@
                     cursor: pointer;
                 }
             }
+        .google-login{
+            display: flex;
+            margin-top: 20px;
+            align-items: center;
+            background-color: rgb(236, 230, 230);
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 10px;
+            border-radius: 5px;
+            border: 1px solid gray;
+            cursor: pointer;
+
+            img{
+                width: 20px;
+            }
+            p{
+                font-size: 16px;
+                font-weight: 500;
+                font-family: monospace;
+            }
+        }
+       
         }
 
     }

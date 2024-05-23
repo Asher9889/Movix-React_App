@@ -1,15 +1,28 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./style.scss"
-import { ContentWrapper } from '../../components'
+import { ContentWrapper, Toast } from '../../components'
 import { useFirebase } from '../../context/FirebaseContext';
 import { useNavigate } from 'react-router-dom';
+
+import google from "../../assets/google.png"
+
+
+
 const Login = () => {
 
     const [email , setEmail] = useState("");
     const [password , setPassword] = useState("");
+
+
     const navigate = useNavigate();
 
-    const {loginWithEmailAndPassword} = useFirebase();
+    const {loginWithEmailAndPassword, isLoggedIn , signInWithGoogle} = useFirebase();
+    console.log(isLoggedIn)
+
+    useEffect(()=>{
+        if (isLoggedIn) navigate("/")
+
+    }, [isLoggedIn]) 
 
     const handleSubmit = async(e)=>{
         try {
@@ -17,10 +30,17 @@ const Login = () => {
             const result = await loginWithEmailAndPassword(email, password)
             console.log(result)
             console.log("successfully logged in" )
+            setToast(true)
         } catch (error) {
             console.log("error during email login ", error)
+           
+            
         }
 
+    }
+
+    const handleGoogleSignIn = ()=>{
+        signInWithGoogle()
     }
     
 
@@ -38,7 +58,11 @@ const Login = () => {
                         <button type='submit' className='btn input1'>Log In</button>
                     </form>
                     {/* <hr /> */}
-                    <p className='login-btn'>move to <span onClick={()=> navigate("/signup")}>Create Account</span></p>
+                    <div onClick={handleGoogleSignIn} className='google-login'>
+                        <img src={google} alt="" />
+                        <p>Login with Google</p>
+                    </div>
+                    <p className='login-btn'><span onClick={()=> navigate("/signup")}>Create Account</span></p>
 
                 </div>
             </div>

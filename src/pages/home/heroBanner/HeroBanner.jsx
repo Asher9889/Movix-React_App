@@ -4,13 +4,15 @@ import fetchDataFromApi from "../../../utils/axios";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
 import { useSelector } from "react-redux";
-import { Image, ContentWrapper } from "../../../components";
+import { Image, ContentWrapper, Toast } from "../../../components";
+import { useFirebase } from "../../../context/FirebaseContext";
 
 const HeroBanner = () => {
   const { info } = useSelector((state) => state.home);
   const navigate = useNavigate();
   const [wallpaper, setWallpaper] = useState();
   const [query, setQuery] = useState("");
+  const [toast, setToast] = useState(false)
 
   const searchInputHandle = (e) => {
     if (e.key === "Enter" && query.length > 0) {
@@ -22,6 +24,13 @@ const HeroBanner = () => {
   const { data, loading } = useFetch("/movie/upcoming");
   // console.log(data, loading);
 
+  const {current_user} = useFirebase();
+  // console.log(current_user)
+  const first_name = current_user?.displayName?.split(" ")[0]  || current_user?.email?.split("@")[0];
+  // console.log(current_user?.displayName?.split(" ")[0] || current_user?.email?.split("@")[0])
+
+  
+
   const bg =
     info &&
     data &&
@@ -31,6 +40,10 @@ const HeroBanner = () => {
 
   useEffect(() => {
     setWallpaper(bg);
+    setToast(true)
+    setTimeout(()=>{
+      setToast(false)
+    }, 6000)
   }, [data]);
 
   return (
@@ -59,6 +72,7 @@ const HeroBanner = () => {
             <button>search</button>
           </div>
         </div>
+        {toast && <Toast name={first_name} />}
       </ContentWrapper>
     </div>
   );

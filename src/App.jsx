@@ -7,6 +7,7 @@ import {Header, Footer} from "./components/index"
 import { useSelector } from 'react-redux';
 import { getApiData, getGenresData } from './store/reducers/homeSlice';
 import { useDispatch } from 'react-redux';
+import {Toast} from './components/index';
 import VideoPlay from './components/videoPlay/VideoPlay';
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
           <Route path='/search/:query' element={<SearchResults/>}/>
           <Route path='/explore/:mediaType' element={<Explore/>}/>
           <Route path='*' element={<PageNotFound/>}/>
+          <Route path='/toast' element={<Toast/>}/>
         </Routes>
       {/* <Footer/> */}
     </BrowserRouter>

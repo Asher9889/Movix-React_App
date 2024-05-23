@@ -1,17 +1,20 @@
 import React, {useState} from 'react'
-import "./style.scss"
+import "./createAccount.scss"
 import { ContentWrapper } from '../../components';
 import { useFirebase } from '../../context/FirebaseContext';
 import { useNavigate } from 'react-router-dom';
+import google from "../../assets/google.png"
 
 
 const CreateAccount = () => {
     const [email , setEmail] = useState("");
     const [password , setPassword] = useState("");
 
+
+
     const navigate = useNavigate();
 
-    const {SignUpWithEmailAndPassword} = useFirebase();
+    const {SignUpWithEmailAndPassword, signInWithGoogle} = useFirebase();
 
     const handleCreateAccount = async(e)=>{
         e.preventDefault();
@@ -20,6 +23,10 @@ const CreateAccount = () => {
         console.log("user account created")
         navigate("/")
         
+    }
+
+    const handleGoogleSignIn = ()=>{
+        signInWithGoogle()
     }
 
 
@@ -37,7 +44,11 @@ const CreateAccount = () => {
                         <button type='submit' className='btn input1'>Create account</button>
                     </form>
                     {/* <hr /> */}
-                    <p className='login-btn'>move to <span onClick={()=> navigate("/login")}>Login Page</span></p>
+                    <div onClick={handleGoogleSignIn} className='google-login'>
+                        <img src={google} alt="" />
+                        <p>Login with Google</p>
+                    </div>
+                    <p className='login-btn'><span onClick={()=> navigate("/login")}>Login Page</span></p>
 
                 </div>
             </div>

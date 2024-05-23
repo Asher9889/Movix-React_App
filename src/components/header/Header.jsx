@@ -31,8 +31,9 @@ const Header = () => {
 
   const {signOutUser} = useFirebase();
 
-  const logoutHandle = ()=>{
-    signOutUser();
+  const logoutHandle = async ()=>{
+    await signOutUser();
+    setMobileMenu(false)
     navigate("/login")
   }
 

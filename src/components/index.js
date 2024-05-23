@@ -6,5 +6,6 @@ import SwitchTab from "./switchTab/SwitchTab"
 import Carousel from "./carousel/Carousel"
 import RatingCircle from "./ratingCircle/RatingCircle"
 import Genres from "./genres/Genres"
+import Toast from "./toast/Toast"
 
-export {Header, Footer, ContentWrapper, Image, SwitchTab, Carousel, RatingCircle, Genres}
+export {Header, Footer, ContentWrapper, Image, SwitchTab, Carousel, RatingCircle, Genres, Toast}

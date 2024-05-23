@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { createContext } from "react"
 import { initializeApp} from "firebase/app"
 import { getAnalytics } from "firebase/analytics";
-import { getAuth , createUserWithEmailAndPassword, signInWithEmailAndPassword , onAuthStateChanged , signOut } from "firebase/auth"
+import { getAuth , createUserWithEmailAndPassword, signInWithEmailAndPassword , onAuthStateChanged , signOut, GoogleAuthProvider , signInWithPopup } from "firebase/auth"
 import { useNavigate } from "react-router-dom";
 
 const firebaseConfig = {
@@ -18,6 +18,8 @@ const firebaseConfig = {
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
   const auth = getAuth(app)
+
+  const provider = new GoogleAuthProvider();
 
 export const FirebaseContext = createContext();
 
@@ -55,8 +57,18 @@ export const FirebaseProvider = (props)=>{
         console.log("user succesfully signout")
     }
 
+    const signInWithGoogle = async()=>{
+        const user = await signInWithPopup(auth, provider)
+        console.log(user)
+        console.log("Auth with google successfully completed")
+    }
+
+    const current_user = auth.currentUser
+    // console.log(current_user)
+
+
     return (
-        <FirebaseContext.Provider value={{SignUpWithEmailAndPassword, loginWithEmailAndPassword, signOutUser, isLoggedIn}}>
+        <FirebaseContext.Provider value={{SignUpWithEmailAndPassword, loginWithEmailAndPassword, signOutUser, signInWithGoogle , isLoggedIn, current_user}}>
             {props.children}
         </FirebaseContext.Provider>
     )
