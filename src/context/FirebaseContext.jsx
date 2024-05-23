@@ -58,14 +58,14 @@ export const FirebaseProvider = (props)=>{
     }
 
     
-    const signInWithGoogle = () => {
+    const signInWithGoogle = async () => {
         let details = navigator.userAgent; 
         let regexp = /android|iphone|kindle|ipad/i; 
         let isMobileDevice = regexp.test(details); 
         if (isMobileDevice) {
-          signInWithRedirect(auth, provider);
+          await signInWithRedirect(auth, provider);
         } else {
-          signInWithPopup(auth, provider);
+          await signInWithPopup(auth, provider);
         }
     };
      // Handle redirect result
