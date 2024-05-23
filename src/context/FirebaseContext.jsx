@@ -69,15 +69,15 @@ export const FirebaseProvider = (props)=>{
         }
     };
      // Handle redirect result
-     getRedirectResult(auth)
-     .then((result) => {
-       if (result.user) {
-         console.log('Google sign-in successful:', result.user);
-       }
-     })
-     .catch((error) => {
-       console.error('Error during Google sign-in:', error);
-     });
+    //  getRedirectResult(auth)
+    //  .then((result) => {
+    //    if (result.user) {
+    //      console.log('Google sign-in successful:', result.user);
+    //    }
+    //  })
+    //  .catch((error) => {
+    //    console.error('Error during Google sign-in:', error);
+    //  });
 
     const current_user = auth.currentUser
     // console.log(current_user)

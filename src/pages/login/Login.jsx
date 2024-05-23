@@ -20,9 +20,9 @@ const Login = () => {
     console.log(isLoggedIn)
 
     useEffect(()=>{
-        if (isLoggedIn) navigate("/")
+        // if (isLoggedIn) navigate("/")
 
-    }, [isLoggedIn]) 
+    }, [isLoggedIn, signInWithGoogle, loginWithEmailAndPassword]) 
 
     const handleSubmit = async(e)=>{
         try {
