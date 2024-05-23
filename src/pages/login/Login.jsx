@@ -39,8 +39,8 @@ const Login = () => {
 
     }
 
-    const handleGoogleSignIn = ()=>{
-        signInWithGoogle()
+    const handleGoogleSignIn = async()=>{
+        await signInWithGoogle()
     }
     
 
