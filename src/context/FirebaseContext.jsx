@@ -57,8 +57,12 @@ export const FirebaseProvider = (props)=>{
         console.log("user succesfully signout")
     }
 
+    
     const signInWithGoogle = () => {
-        if (/Mobi|Android/i.test(navigator.userAgent)) {
+        let details = navigator.userAgent; 
+        let regexp = /android|iphone|kindle|ipad/i; 
+        let isMobileDevice = regexp.test(details); 
+        if (isMobileDevice) {
           signInWithRedirect(auth, provider);
         } else {
           signInWithPopup(auth, provider);
@@ -67,6 +71,8 @@ export const FirebaseProvider = (props)=>{
 
     const current_user = auth.currentUser
     // console.log(current_user)
+    const device = navigator.userAgent
+    console.log(device)
 
 
     return (
