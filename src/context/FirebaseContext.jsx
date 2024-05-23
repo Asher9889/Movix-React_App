@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { createContext } from "react"
 import { initializeApp} from "firebase/app"
 import { getAnalytics } from "firebase/analytics";
-import { getAuth , createUserWithEmailAndPassword, signInWithEmailAndPassword , onAuthStateChanged , signOut, GoogleAuthProvider , signInWithPopup , signInWithRedirect} from "firebase/auth"
+import { getAuth , createUserWithEmailAndPassword, signInWithEmailAndPassword , onAuthStateChanged , signOut, GoogleAuthProvider , signInWithPopup , signInWithRedirect , getRedirectResult } from "firebase/auth"
 import { useNavigate } from "react-router-dom";
 
 const firebaseConfig = {
@@ -67,7 +67,17 @@ export const FirebaseProvider = (props)=>{
         } else {
           signInWithPopup(auth, provider);
         }
-      };
+    };
+     // Handle redirect result
+     getRedirectResult(auth)
+     .then((result) => {
+       if (result.user) {
+         console.log('Google sign-in successful:', result.user);
+       }
+     })
+     .catch((error) => {
+       console.error('Error during Google sign-in:', error);
+     });
 
     const current_user = auth.currentUser
     // console.log(current_user)
