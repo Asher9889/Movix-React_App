@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import './App.scss'
 import fetchDataFromApi from './utils/axios';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import {Home, SearchResults, Explore, Details, PageNotFound, Login, CreateAccount } from "./pages/index"
 import {Header, Footer} from "./components/index"
 import { useSelector } from 'react-redux';
@@ -9,9 +9,12 @@ import { getApiData, getGenresData } from './store/reducers/homeSlice';
 import { useDispatch } from 'react-redux';
 import {Toast} from './components/index';
 import VideoPlay from './components/videoPlay/VideoPlay';
+import { useFirebase } from './context/FirebaseContext';
 
 function App() {
   const dispatch = useDispatch();
+  // const navigate = useNavigate()
+  const {isLoggedIn} = useFirebase
 
   useEffect(() => {
     getDataFromApi()
@@ -22,7 +25,6 @@ function App() {
     const {images} = await fetchDataFromApi("/configuration")
     // console.log(images)
     dispatch(getApiData(images.base_url))
-
   }
 
     const genersCall = async () =>{
@@ -47,7 +49,8 @@ function App() {
     // console.log(allGeners)
     }
 
-    
+   
+
   
 
   return (

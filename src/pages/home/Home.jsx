@@ -15,6 +15,7 @@ const Home = () => {
   useEffect(()=>{
     isLoggedIn ? navigate("/") : navigate("/login")
   },[])
+  
   return (
     <div className='home'>
       <HeroBanner />

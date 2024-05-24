@@ -28,6 +28,7 @@ export const useFirebase = ()=> useContext(FirebaseContext)
 
 export const FirebaseProvider = (props)=>{
 
+
     const [user, setUser] = useState(false);
     
 
@@ -40,7 +41,7 @@ export const FirebaseProvider = (props)=>{
     }
 
     useEffect(()=>{
-        onAuthStateChanged(auth, (user)=>{
+       onAuthStateChanged(auth, (user)=>{
             if(user){
                 setUser(true)
             }else{
@@ -49,16 +50,19 @@ export const FirebaseProvider = (props)=>{
             }
         }) 
 
-        getRedirectResult(auth)
-      .then((result) => {
-        if (result.user) {
-          console.log("Google sign-in successful:", result.user);
-          setUser(result.user);
-        }
-      })
-      .catch((error) => {
-        console.error("Error during Google sign-in:", error);
-      });
+
+    //     getRedirectResult(auth)
+    //   .then((result) => {
+    //     if (result.user) {
+    //       console.log("Google sign-in successful:", result.user);
+    //       setUser(result.user);
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error during Google sign-in:", error);
+    //   });
+
+      
 
 
     }, [])
@@ -70,6 +74,12 @@ export const FirebaseProvider = (props)=>{
         console.log("user succesfully signout")
     }
 
+    // let details = navigator.userAgent; 
+    // let regexp = /android|iphone|ipad/i;  
+    // console.log(details)
+
+    // let isMobileDevice = regexp.test(details); 
+    // console.log(isMobileDevice)
     
     const signInWithGoogle = async () => {
         let details = navigator.userAgent; 
@@ -78,11 +88,16 @@ export const FirebaseProvider = (props)=>{
 
         let isMobileDevice = regexp.test(details); 
         console.log(isMobileDevice)
-        if (isMobileDevice) {
-          await signInWithRedirect(auth, provider);
-        } else {
-          await signInWithPopup(auth, provider);
+        try {
+            if (isMobileDevice) {
+                await signInWithRedirect(auth, provider);
+              } else {
+                await signInWithPopup(auth, provider);
+              }
+        } catch (error) {
+            console.log("error during google Login", error)
         }
+        
     };
      // Handle redirect result
     //  getRedirectResult(auth)
