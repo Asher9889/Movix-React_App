@@ -49,6 +49,17 @@ export const FirebaseProvider = (props)=>{
             }
         }) 
 
+        getRedirectResult(auth)
+      .then((result) => {
+        if (result.user) {
+          console.log("Google sign-in successful:", result.user);
+          setUser(result.user);
+        }
+      })
+      .catch((error) => {
+        console.error("Error during Google sign-in:", error);
+      });
+
 
     }, [])
 
