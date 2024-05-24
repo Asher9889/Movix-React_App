@@ -19,10 +19,19 @@ const Login = () => {
     const {loginWithEmailAndPassword, isLoggedIn , signInWithGoogle} = useFirebase();
     console.log(isLoggedIn)
 
-    useEffect(()=>{
-        // if (isLoggedIn) navigate("/")
+    
+    const handleGoogleSignIn = async (e)=>{
+        e.preventDefault();
+        await signInWithGoogle()
+    }
 
-    }, [isLoggedIn, signInWithGoogle, loginWithEmailAndPassword]) 
+    
+    useEffect(()=>{
+        if (isLoggedIn) navigate("/")
+
+    }, [isLoggedIn, signInWithGoogle, loginWithEmailAndPassword, handleGoogleSignIn]) 
+
+
 
     const handleSubmit = async(e)=>{
         try {
@@ -39,9 +48,6 @@ const Login = () => {
 
     }
 
-    const handleGoogleSignIn = async()=>{
-        await signInWithGoogle()
-    }
     
 
   return (
@@ -57,11 +63,11 @@ const Login = () => {
                         
                         <button type='submit' className='btn input1'>Log In</button>
                     </form>
-                    {/* <hr /> */}
                     <div onClick={handleGoogleSignIn} className='google-login'>
                         <img src={google} alt="" />
                         <p>Login with Google</p>
                     </div>
+                    {/* <hr /> */}
                     <p className='login-btn'><span onClick={()=> navigate("/signup")}>Create Account</span></p>
 
                 </div>

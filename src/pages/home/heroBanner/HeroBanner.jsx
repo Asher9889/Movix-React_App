@@ -56,7 +56,7 @@ const HeroBanner = () => {
         <div className="heroBannerBottom">
           <h1 className="title">Welcome</h1>
           <h1 className="subTitle">
-            Misslions of movies , Tv Shows and people to discover. Explore now
+            Millions of Movies , Tv Shows and people to discover. Explore now
             !!
           </h1>
 
