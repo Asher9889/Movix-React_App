@@ -13,7 +13,7 @@ const Home = () => {
   // console.log(data)
 
   useEffect(()=>{
-    // isLoggedIn ? navigate("/") : navigate("/login")
+    isLoggedIn ? navigate("/") : navigate("/login")
   },[])
 
   return (

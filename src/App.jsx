@@ -71,7 +71,7 @@ function App() {
           <Route path='/search/:query' element={<SearchResults/>}/>
           <Route path='/explore/:mediaType' element={<Explore/>}/>
           <Route path='*' element={<PageNotFound/>}/>
-          <Route path='/toast' element={<Toast/>}/>
+          {/* <Route path='/toast' element={<Toast/>}/> */}
         </Routes>
       {/* <Footer/> */}
     </BrowserRouter>

@@ -110,10 +110,14 @@ const Header = () => {
           <ul className="desktopMenu">
             <li onClick={()=>menuNavigationHandle("movie")} >Movie</li>
             <li onClick={()=>menuNavigationHandle("tv")}>TV Shows</li>
+            {isLoggedIn && 
+              <li className="mobileMenuItems" onClick={logoutHandle}>Logout</li> }
+           
             <li>
               <IoSearchSharp className="searchDesktop" onClick={()=>{setShowSearch(true)
               setMobileMenu(false)
             }} />
+
             </li>
           </ul>
 
