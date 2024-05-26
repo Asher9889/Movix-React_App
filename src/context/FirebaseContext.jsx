@@ -13,14 +13,14 @@ const firebaseConfig = {
     messagingSenderId: "728570849415",
     appId: "1:728570849415:web:4f0c31debf174eda6bf022",
     measurementId: "G-LJBK3RYMMJ"
-  };
+};
   
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const auth = getAuth(app)
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth = getAuth(app)
 
 
-  const provider = new GoogleAuthProvider();
+const provider = new GoogleAuthProvider();
 
 export const FirebaseContext = createContext();
 
@@ -51,21 +51,6 @@ export const FirebaseProvider = (props)=>{
                 
             }
         }) 
-
-
-        getRedirectResult(auth)
-      .then((result) => {
-        if (result && result.user) {
-          console.log("Google sign-in successful:", result.user);
-        //   setUser(result.user);
-        }
-      })
-      .catch((error) => {
-        console.error("Error during Google sign-in:", error);
-      });
-
-      
-
 
     }, [])
 
@@ -119,7 +104,7 @@ export const FirebaseProvider = (props)=>{
 
 
     return (
-        <FirebaseContext.Provider value={{SignUpWithEmailAndPassword, loginWithEmailAndPassword, signOutUser, signInWithGoogle , isLoggedIn, current_user}}>
+        <FirebaseContext.Provider value={{SignUpWithEmailAndPassword, loginWithEmailAndPassword, signOutUser, signInWithGoogle , getRedirectResult, isLoggedIn, current_user, auth, provider}}>
             {props.children}
         </FirebaseContext.Provider>
     )

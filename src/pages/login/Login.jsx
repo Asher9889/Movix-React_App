@@ -16,7 +16,7 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    const {loginWithEmailAndPassword, isLoggedIn , signInWithGoogle} = useFirebase();
+    const {loginWithEmailAndPassword, isLoggedIn , signInWithGoogle, getRedirectResult , auth , provider} = useFirebase();
     console.log(isLoggedIn)
 
     
@@ -28,6 +28,8 @@ const Login = () => {
 
     
     useEffect(()=>{
+        const response = getRedirectResult(auth, provider)
+        console.log(response)
         if (isLoggedIn) navigate("/")
 
     }, [isLoggedIn, signInWithGoogle, loginWithEmailAndPassword, handleGoogleSignIn]) 
