@@ -16,7 +16,7 @@ const Popular = () => {
   
 
   return <>
-    {rawData ? <div className="trending">
+    {rawData ? <div class="trending">
       <ContentWrapper>
         <p>What's Popular</p>
 

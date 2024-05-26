@@ -101,27 +101,27 @@ const Header = () => {
 
   return (
     <>
-      <header className={`header ${showHeader} ${!showMobileMenu ? "backgroundF" : ""} `}>
+      <header class={`header ${showHeader} ${!showMobileMenu ? "backgroundF" : ""} `}>
         <ContentWrapper>
           <div>
             <img onClick={()=>navigate("/")} src={MovixLogo} alt="" />
           </div>
 
-          <ul className="desktopMenu">
+          <ul class="desktopMenu">
             <li onClick={()=>menuNavigationHandle("movie")} >Movie</li>
             <li onClick={()=>menuNavigationHandle("tv")}>TV Shows</li>
             {isLoggedIn && 
-              <li className="mobileMenuItems" onClick={logoutHandle}>Logout</li> }
+              <li class="mobileMenuItems" onClick={logoutHandle}>Logout</li> }
            
             <li>
-              <IoSearchSharp className="searchDesktop" onClick={()=>{setShowSearch(true)
+              <IoSearchSharp class="searchDesktop" onClick={()=>{setShowSearch(true)
               setMobileMenu(false)
             }} />
 
             </li>
           </ul>
 
-          <div className="mobileMenu">
+          <div class="mobileMenu">
             <IoSearchSharp onClick={()=>{setShowSearch(true)
               setMobileMenu(false)
             }} />
@@ -134,18 +134,18 @@ const Header = () => {
         </ContentWrapper>
 
         {mobileMenu ? (
-          <div className="showMobileMenu">
+          <div class="showMobileMenu">
             <ul>
-              <li className="mobileMenuItems" onClick={()=>menuNavigationHandle("movie")}>Movies</li>
+              <li class="mobileMenuItems" onClick={()=>menuNavigationHandle("movie")}>Movies</li>
               <hr />
-              <li className="mobileMenuItems" onClick={()=>menuNavigationHandle("tv")}>TV Shows</li>
+              <li class="mobileMenuItems" onClick={()=>menuNavigationHandle("tv")}>TV Shows</li>
               {isLoggedIn && <> <hr />
-              <li className="mobileMenuItems" onClick={logoutHandle}>Logout</li> </>}
+              <li class="mobileMenuItems" onClick={logoutHandle}>Logout</li> </>}
             </ul>
           </div>
         ) : null}
 
-       {showSearch ?  <div className="searchInput">
+       {showSearch ?  <div class="searchInput">
           <ContentWrapper>
             <input
               onKeyUp={searchInputHandle}
@@ -156,16 +156,16 @@ const Header = () => {
             />
             <IoCloseOutline  onClick={()=>{setShowSearch(false)
               setQuery("")
-            }} className="closeIcon"  />
+            }} class="closeIcon"  />
           </ContentWrapper>
         </div> : null}
 
-        {showSearch && <div className="searchResults-div">
+        {showSearch && <div class="searchResults-div">
           <ContentWrapper>
-            <div className="searchResultsItems">
+            <div class="searchResultsItems">
               {searchData && searchData.map((e)=> (
               <div key={e.id}>
-                <div className="resultsItem" onClick={()=> {navigate(`/search/${e.media_type}/${e.id}`)
+                <div class="resultsItem" onClick={()=> {navigate(`/search/${e.media_type}/${e.id}`)
                 setShowSearch(false)
               } }>
                   <Image src={e.backdrop_path ? info  + "original" + e.backdrop_path : unavailable} />

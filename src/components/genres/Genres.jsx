@@ -6,7 +6,7 @@ const Genres = ({data}) => {
     // console.log(genres)
     // console.log(data)
   return (
-    <div className='genres'>
+    <div class='genres'>
       {data?.map((e)=>{
         if(!data || !genres) return;
         return <p key={e}>{genres[e]?.name}</p>

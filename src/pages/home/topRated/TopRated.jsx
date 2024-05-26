@@ -17,7 +17,7 @@ const TopRated = () => {
   
 
   return <>
-    {rawData ? <div className="trending">
+    {rawData ? <div class="trending">
       <ContentWrapper>
         <p>Top Rated</p>
 

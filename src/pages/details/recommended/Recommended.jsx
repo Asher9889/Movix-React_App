@@ -17,7 +17,7 @@ const Recommended = ({res}) => {
   
 
   return (
-    <div className="trending">
+    <div class="trending">
       <ContentWrapper>
         <p>Recommendations</p>
 

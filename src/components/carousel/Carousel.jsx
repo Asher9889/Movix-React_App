@@ -27,22 +27,22 @@ const Carousel = ({ data, loading, endPoint }) => {
   // console.log(endPoint)
 
   return (
-    <div className="carousel">
+    <div class="carousel">
       <ContentWrapper>
-        <div className="carouselItems" >
+        <div class="carouselItems" >
           {data?.map((e, index) => {
             return (
-              <div onClick={()=> navigate(`/${ endPoint || e.media_type }/${e.id}`)} key={e.id} className="carouselItem" >
+              <div onClick={()=> navigate(`/${ endPoint || e.media_type }/${e.id}`)} key={e.id} class="carouselItem" >
                 <Image src={info + "original" + e.poster_path} key={e.id} />
-                <p className="title">
+                <p class="title">
                   {e && (e.original_title || e.title || e.name).slice(0, 15)}
                 </p>
-                <p className="date">{dayjs(e.release_date).format("MMM D, YYYY")}</p>
-                <div className="rating-div">
+                <p class="date">{dayjs(e.release_date).format("MMM D, YYYY")}</p>
+                <div class="rating-div">
                   <RatingCircle data={e?.vote_average.toFixed(1)}/>
                 </div>
                 
-                <div className="genre-div">
+                <div class="genre-div">
                  <Genres data={e.genre_ids.slice(0,2)} />
                 </div>
                 
@@ -50,8 +50,8 @@ const Carousel = ({ data, loading, endPoint }) => {
             );
           })}
 
-          <span className="left-arrow" ><FaArrowLeftLong /></span>
-          <span className="right-arrow" ><FaArrowRightLong /></span>
+          <span class="left-arrow" ><FaArrowLeftLong /></span>
+          <span class="right-arrow" ><FaArrowRightLong /></span>
         </div>
       </ContentWrapper>
     </div>

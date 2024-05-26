@@ -3,9 +3,9 @@ import "./style.scss"
 
 const Toast = ({name})=> {
     return (
-        <div className="toast-div">
+        <div class="toast-div">
             <i class="ri-star-smile-fill"></i>
-            <p className="text">{`Welcome ${name} `}</p>
+            <p class="text">{`Welcome ${name} `}</p>
         </div>
     )
 }

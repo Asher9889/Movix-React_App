@@ -76,63 +76,63 @@ const DetailsBanner = ({ data, credit, res }) => {
   return (
     <>
       {data && info && (
-        <div className="detailsBanner">
+        <div class="detailsBanner">
           <img
-            className="bgMobile"
+            class="bgMobile"
             src={info + "original" + data.poster_path}
             alt=""
           />
           <img
-            className="bgDesktop"
+            class="bgDesktop"
             src={info + "original" + data.backdrop_path}
             alt=""
           />
-          <div className="opacity-layer"></div>
+          <div class="opacity-layer"></div>
           <ContentWrapper>
-            <div className="bannerDetails">
-              <div className="left">
+            <div class="bannerDetails">
+              <div class="left">
                 <Image src={info + "original" + data.poster_path} />
                
               </div>
-              <div className="right">
-                <p className="title">{data.title || data.name}</p>
-                <p className="subTitle">{data.tagline}</p>
-                <span className="rating-span">
+              <div class="right">
+                <p class="title">{data.title || data.name}</p>
+                <p class="subTitle">{data.tagline}</p>
+                <span class="rating-span">
                   <Genres data={data.genres.map((e) => e.id)} />
                 </span>
-                <div className="div-rate-play">
-                  <span className="details-rating">
+                <div class="div-rate-play">
+                  <span class="details-rating">
                     <RatingCircle data={data.vote_average.toFixed(1)} />
                   </span>
-                  <span onClick={()=> setShowTrailer(true)} className="play-div">
+                  <span onClick={()=> setShowTrailer(true)} class="play-div">
                     <img src={Play} />
                     {/* <PlayIcon /> */}
-                    <p className="play-text">Watch Trailer</p>
+                    <p class="play-text">Watch Trailer</p>
                   </span>
-                  <img onClick={()=> window.open(`https://www.imdb.com/title/${data.imdb_id}` , "_blank", console.log("clicked"))} className="imdb-img" src={imdb}/>
+                  <img onClick={()=> window.open(`https://www.imdb.com/title/${data.imdb_id}` , "_blank", console.log("clicked"))} class="imdb-img" src={imdb}/>
                  
                   
                 </div>
 
-                <div className="overview">
-                  <p className="overview-title">Overview</p>
-                  <p className="overview-content">{data.overview}</p>
+                <div class="overview">
+                  <p class="overview-title">Overview</p>
+                  <p class="overview-content">{data.overview}</p>
                 </div>
 
-                <div className="info">
-                  <div className="info-text">
+                <div class="info">
+                  <div class="info-text">
                     <p>Status:</p>
-                    <p className="info-content">{data.status}</p>
+                    <p class="info-content">{data.status}</p>
                   </div>
-                  <div className="info-text">
+                  <div class="info-text">
                     <p>Release Date:</p>
-                    <p className="info-content">
+                    <p class="info-content">
                       {dayjs(data.release_date).format("MMM DD, YYYY")}
                     </p>
                   </div>
-                  <div className="info-text">
+                  <div class="info-text">
                     <p>Runtime:</p>
-                    <p className="info-content">
+                    <p class="info-content">
                       {Math.floor(data.runtime / 60) +
                         "h " +
                         (data.runtime % 60) +
@@ -143,7 +143,7 @@ const DetailsBanner = ({ data, credit, res }) => {
 
                 <hr />
 
-                <div className="director">
+                <div class="director">
                   <p>
                     Director :
                     {director?.map((e) => (
@@ -152,7 +152,7 @@ const DetailsBanner = ({ data, credit, res }) => {
                   </p>{" "}
                 </div>
                 <hr />
-                <div className="director">
+                <div class="director">
                   <p>
                     Writers :
                     {writers?.map((e) => (

@@ -13,7 +13,7 @@ const PlayIcon = () => {
             xmlSpace="preserve"
         >
             <polygon
-                className="triangle"
+                class="triangle"
                 fill="none"
                 strokeWidth="7"
                 strokeLinecap="round"
@@ -22,7 +22,7 @@ const PlayIcon = () => {
                 points="73.5,62.5 148.5,105.8 73.5,149.1 "
             ></polygon>
             <circle
-                className="circle"
+                class="circle"
                 fill="none"
                 strokeWidth="7"
                 strokeLinecap="round"

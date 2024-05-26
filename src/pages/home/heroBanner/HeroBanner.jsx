@@ -47,20 +47,20 @@ const HeroBanner = () => {
   }, [data]);
 
   return (
-    <div className="heroBanner">
-      <div className="heroBanner-image-div">
+    <div class="heroBanner">
+      <div class="heroBanner-image-div">
         <Image src={wallpaper} />
       </div>
-      <div className="gradient-layer"></div>
+      <div class="gradient-layer"></div>
       <ContentWrapper>
-        <div className="heroBannerBottom">
-          <h1 className="title">Welcome</h1>
-          <h1 className="subTitle">
+        <div class="heroBannerBottom">
+          <h1 class="title">Welcome</h1>
+          <h1 class="subTitle">
             Millions of Movies , Tv Shows and people to discover. Explore now
             !!
           </h1>
 
-          <div className="searchInput">
+          <div class="searchInput">
             <input
               onKeyUp={searchInputHandle}
               onChange={(e) => setQuery(e.target.value)}

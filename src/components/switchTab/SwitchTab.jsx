@@ -18,13 +18,13 @@ const SwitchTab = ({data, setEndPoint}) => {
 
     
   return (
-    <div className='switchTab'>
-      <div className="switchItems">
+    <div class='switchTab'>
+      <div class="switchItems">
         {data.map((e,index)=>(
-            <p key={e} className={selectedItem === index ? "active" : ""} onClick={()=> activeItem(e,index)}>{e}</p>
+            <p key={e} class={selectedItem === index ? "active" : ""} onClick={()=> activeItem(e,index)}>{e}</p>
 
         ))}
-        <span className="gradientBg" style={{ left: move + 'px' }}></span>
+        <span class="gradientBg" style={{ left: move + 'px' }}></span>
       </div>
       
     </div>

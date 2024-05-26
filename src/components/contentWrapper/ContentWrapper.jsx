@@ -3,7 +3,7 @@ import "./style.scss";
 
 const ContentWrapper = ({children}) => {
   return (
-    <div className='contentWrapper'>
+    <div class='contentWrapper'>
       {children}
     </div>
   )

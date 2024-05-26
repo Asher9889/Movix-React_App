@@ -17,7 +17,7 @@ const Home = () => {
   },[])
 
   return (
-    <div className='home'>
+    <div class='home'>
       <HeroBanner />
       <Trending />
       <Popular />

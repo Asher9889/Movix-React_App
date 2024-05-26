@@ -40,15 +40,15 @@ import React, { useEffect, useState } from 'react'
   
     
     return (
-      <div className='searchResults'>
+      <div class='searchResults'>
       <ContentWrapper>
-        <div className="items">
+        <div class="items">
           {newData && newData.map((e)=>(
-          <div onClick={()=> navigate(`/search/${e.media_type}/${e.id}`)} className="item" key={e.id}>
+          <div onClick={()=> navigate(`/search/${e.media_type}/${e.id}`)} class="item" key={e.id}>
             <Image src={e.poster_path ? info + "original" + e.poster_path : noposter}/>
-            <p className='title'>{e.original_name || e.name || e.title}</p>
+            <p class='title'>{e.original_name || e.name || e.title}</p>
            
-            <p className='title date'>{dayjs(e.first_air_date || e.release_date).format("MMM D, YYYY")}</p>
+            <p class='title date'>{dayjs(e.first_air_date || e.release_date).format("MMM D, YYYY")}</p>
           </div>
           ))}
         </div>

@@ -14,16 +14,16 @@ const Cast = ({credit}) => {
   // const url = {}
 
   return <>
-    <div className='cast-div'>
+    <div class='cast-div'>
       <ContentWrapper>
-      <p className='top-casts'>Top Casts</p>
-        <div className="items">
+      <p class='top-casts'>Top Casts</p>
+        <div class="items">
           
           {actors && actors.map((e)=> (
-            <div key={e.id} className="item">
+            <div key={e.id} class="item">
               <Image src={e.profile_path ? info + "original" +  e.profile_path : avatar }/>
-              <p className='subName'>{e.character}</p>
-              <p className='name'>{e.original_name || e.name}</p>
+              <p class='subName'>{e.character}</p>
+              <p class='name'>{e.original_name || e.name}</p>
             </div>
           ))}
         </div>

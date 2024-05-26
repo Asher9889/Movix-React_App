@@ -16,7 +16,7 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    const {loginWithEmailAndPassword, isLoggedIn , signInWithGoogle, getRedirectResult , auth , provider} = useFirebase();
+    const {loginWithEmailAndPassword, isLoggedIn , signInWithGoogle, getRedirectResult} = useFirebase();
     console.log(isLoggedIn)
 
     
@@ -27,15 +27,9 @@ const Login = () => {
     }
 
     
-    useEffect(()=>{
-        const response = getRedirectResult(auth, provider)
-        console.log(response)
-        if (isLoggedIn) navigate("/")
-
-    }, [isLoggedIn, signInWithGoogle, loginWithEmailAndPassword, handleGoogleSignIn]) 
-
-
-
+    
+    
+    
     const handleSubmit = async(e)=>{
         try {
             e.preventDefault();
@@ -45,33 +39,41 @@ const Login = () => {
             setToast(true)
         } catch (error) {
             console.log("error during email login ", error)
-           
+            
             
         }
-
+        
     }
+ 
+    useEffect(()=>{
+        
+  
+        if (isLoggedIn) navigate("/")
+
+
+    }, [isLoggedIn, handleSubmit, handleGoogleSignIn]) 
+
 
     
-
   return (
-    <div className='login-div'>
+    <div class='login-div'>
         <ContentWrapper>
-            <div className="login">
-                <div className="form">
+            <div class="login">
+                <div class="form">
                     <form onSubmit={handleSubmit}>
-                        <p className='title'>Login</p>
-                        <p className='subtitle'>Stay Updated with latest Movies & Tv shows</p>
-                        <input onChange={(e)=> setEmail(e.target.value)} value={email} className='input1' type="email" required placeholder='Enter email...' />
-                        <input onChange={(e)=> setPassword(e.target.value)} value={password}  className='input1 input2' type="password" required placeholder='Enter password...' />
+                        <p class='title'>Login</p>
+                        <p class='subtitle'>Stay Updated with latest Movies & Tv shows</p>
+                        <input onChange={(e)=> setEmail(e.target.value)} value={email} class='input1' type="email" required placeholder='Enter email...' />
+                        <input onChange={(e)=> setPassword(e.target.value)} value={password}  class='input1 input2' type="password" required placeholder='Enter password...' />
                         
-                        <button type='submit' className='btn input1'>Log In</button>
+                        <button type='submit' class='btn input1'>Log In</button>
                     </form>
-                    <div onClick={handleGoogleSignIn} className='google-login'>
+                    {/* <div onClick={handleGoogleSignIn} class='google-login'>
                         <img src={google} alt="" />
                         <p>Login with Google</p>
-                    </div>
+                    </div> */}
                     {/* <hr /> */}
-                    <p className='login-btn'><span onClick={()=> navigate("/signup")}>Create Account</span></p>
+                    <p class='login-btn'><span onClick={()=> navigate("/signup")}>Create Account</span></p>
 
                 </div>
             </div>

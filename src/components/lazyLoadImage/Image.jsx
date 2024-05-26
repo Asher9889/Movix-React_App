@@ -6,7 +6,7 @@ const Image = ({src, className}) => {
   return (
     <div>
       <LazyLoadImage
-      className={className || " "}
+      class={className || " "}
       src={src}
       effect='blur'
       >

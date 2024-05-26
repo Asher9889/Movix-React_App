@@ -42,17 +42,17 @@ const VideoSection = ({ res }) => {
   // },[handleCloseClick])
 
   return (
-    <div className="official-video">
+    <div class="official-video">
       <ContentWrapper>
-        <p className="name">Official Videos</p>
-        <div className="items">
+        <p class="name">Official Videos</p>
+        <div class="items">
           {res && res.map((e) => (
             // <a key={e.name} to={`/${mediaType}/${id}/video`}>
-              <div key={e.id} onClick={()=> videoShowHandle(e)}  className="item">
+              <div key={e.id} onClick={()=> videoShowHandle(e)}  class="item">
                 <Image src={`https://img.youtube.com/vi/${e.key}/mqdefault.jpg`} >
                 </Image>
                 {console.log(" ai am from video section")}
-                {/* <ReactPlayer className="reactPlayer" src={`https://www.youtube.com/watch?v=${res && res.key}`}/> */}
+                {/* <ReactPlayer class="reactPlayer" src={`https://www.youtube.com/watch?v=${res && res.key}`}/> */}
                 
                 {/* {e.name} */}
                 {/* <video src=""></video> */}

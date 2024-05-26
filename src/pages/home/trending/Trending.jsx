@@ -13,7 +13,7 @@ const Trending = () => {
   
 
   return <>
-    {rawData ? <div className="trending">
+    {rawData ? <div class="trending">
       <ContentWrapper>
         <p>Trending</p>
 

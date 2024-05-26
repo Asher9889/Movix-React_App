@@ -104,7 +104,7 @@ export const FirebaseProvider = (props)=>{
 
 
     return (
-        <FirebaseContext.Provider value={{SignUpWithEmailAndPassword, loginWithEmailAndPassword, signOutUser, signInWithGoogle , getRedirectResult, isLoggedIn, current_user, auth, provider}}>
+        <FirebaseContext.Provider value={{SignUpWithEmailAndPassword, loginWithEmailAndPassword, signOutUser, signInWithGoogle , getRedirectResult, isLoggedIn, current_user}}>
             {props.children}
         </FirebaseContext.Provider>
     )

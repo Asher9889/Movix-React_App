@@ -17,7 +17,7 @@ const Similar = ({res}) => {
   
 
   return (
-    <div className="trending">
+    <div class="trending">
       <ContentWrapper>
         <p>Similar</p>
 

@@ -39,10 +39,10 @@ const handleCloseClick = (e) => {
   // },[videoKey])
 
   return (
-   <div  className='videoPlayer-div'>
+   <div  class='videoPlayer-div'>
     <ContentWrapper>
 
-    <div className='videoPlayer'>
+    <div class='videoPlayer'>
       <ReactPlayer
         url={`https://www.youtube.com/watch?v=${videoKey}`}
         controls="true"
@@ -51,11 +51,11 @@ const handleCloseClick = (e) => {
         >
 
       </ReactPlayer>
-      <span className='close' onClick={(e) => handleCloseClick(e)} >Close</span>
+      <span class='close' onClick={(e) => handleCloseClick(e)} >Close</span>
 
     </div>
     </ContentWrapper>
-    <div className="opacityLayer"></div>
+    <div class="opacityLayer"></div>
       
    </div>
   )

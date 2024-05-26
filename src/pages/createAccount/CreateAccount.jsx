@@ -31,24 +31,24 @@ const CreateAccount = () => {
 
 
   return (
-    <div className='login-div'>
+    <div class='login-div'>
         <ContentWrapper>
-            <div className="login">
-                <div className="form">
+            <div class="login">
+                <div class="form">
                     <form onSubmit={handleCreateAccount}>
-                        <p className='title'>Create Account</p>
-                        <p className='subtitle'>Stay Updated with latest Movies & Tv shows</p>
-                        <input onChange={(e)=> setEmail(e.target.value)} value={email} className='input1' type="email" required placeholder='Enter email...' />
-                        <input onChange={(e)=> setPassword(e.target.value)} value={password}  className='input1 input2' type="password" required placeholder='Enter password...' />
+                        <p class='title'>Create Account</p>
+                        <p class='subtitle'>Stay Updated with latest Movies & Tv shows</p>
+                        <input onChange={(e)=> setEmail(e.target.value)} value={email} class='input1' type="email" required placeholder='Enter email...' />
+                        <input onChange={(e)=> setPassword(e.target.value)} value={password}  class='input1 input2' type="password" required placeholder='Enter password...' />
                         
-                        <button type='submit' className='btn input1'>Create account</button>
+                        <button type='submit' class='btn input1'>Create account</button>
                     </form>
                     {/* <hr /> */}
-                    <div onClick={handleGoogleSignIn} className='google-login'>
+                    {/* <div onClick={handleGoogleSignIn} class='google-login'>
                         <img src={google} alt="" />
                         <p>Login with Google</p>
-                    </div>
-                    <p className='login-btn'><span onClick={()=> navigate("/login")}>Login Page</span></p>
+                    </div> */}
+                    <p class='login-btn'><span onClick={()=> navigate("/login")}>Login Page</span></p>
 
                 </div>
             </div>
