@@ -1,46 +1,67 @@
 @import "../../mixins.scss";
 
-.toast-div{
-    margin-top: 12vh;
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    background-color: white;
-    width: fit-content;
-    padding: 20px 15px;
-    box-shadow: 0 0 10px #000;
-    position: absolute;
-    border-radius: 0 0 5px 5px;
-    animation: motion 0.4s linear;
-    top: 0;
-    left: 20%;
-    @include sm{
-        left: auto;
-    }
-
-    i, p{
-        color: green;
-        font-size: 20px;
-        font-weight: 600;
-    }
-    .text{
-        color: black;
-        font-family: monospace;
-    }
-}
-.toast-div::after{
-    content: "";
-    position: absolute;
-    background-color: green;
-    bottom: 0;
-    left: 0;
+.toast{
     width: 100%;
-    height: 5px;
-    border-radius: 0 0 0px 5px;
-    animation: line 6s linear forwards;
-  
-
+    height: 100px;
+    height: fit-content;
+    background-color: yellowgreen;
+     .contentWrapper{
+        width: 100%;
+        .toast-div{
+            margin-top: 60px;
+            // transform: translateX(50%);
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            // width: 90%;
+            // width: fit-content;
+            padding: 20px 15px;
+            box-shadow: 0 0 10px #000;
+            position: absolute;
+            border-radius: 0 0 5px 5px;
+            // border-radius: 5px;
+            animation: motion 0.4s linear;
+            top: 0;
+            left:20%;
+            @include sm{
+                left: 30%;
+            }
+            @include md{
+                left: 40%;
+            }
+           
+        
+        
+            i, p{
+                color: green;
+                font-size: 20px;
+                font-weight: 600;
+            }
+            .text{
+                color: black;
+                font-family: monospace;
+            }
+            &::after{
+                content: "";
+                position: absolute;
+                background-color: green;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 5px;
+                border-radius: 0 0 0px 5px;
+                animation: line 6s linear forwards;
+              
+            
+            }
+        }
+        
+     }
+    
 }
+
 
 
 

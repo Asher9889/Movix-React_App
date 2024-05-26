@@ -12,7 +12,7 @@ const HeroBanner = () => {
   const navigate = useNavigate();
   const [wallpaper, setWallpaper] = useState();
   const [query, setQuery] = useState("");
-  const [toast, setToast] = useState(false)
+  const [toast, setToast] = useState(false) 
 
   const searchInputHandle = (e) => {
     if (e.key === "Enter" && query.length > 0) {
@@ -72,7 +72,8 @@ const HeroBanner = () => {
             <button>search</button>
           </div>
         </div>
-        {toast && <Toast name={first_name} />}
+        {/* {toast && <Toast name={first_name} />} */}
+        <Toast />
       </ContentWrapper>
     </div>
   );

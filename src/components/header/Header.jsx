@@ -27,6 +27,13 @@ const Header = () => {
   const [scrollY, setScrollY] = useState(0)
 
 
+  const {current_user} = useFirebase();
+  console.log(current_user)
+  const first_name = current_user?.displayName?.split(" ")[0]  || current_user?.email?.split("@")[0];
+  // console.log(current_user?.displayName?.split(" ")[0] || current_user?.email?.split("@")[0])
+
+
+
   const {info} = useSelector((state)=> state.home)
 
   const {isLoggedIn} = useFirebase()
@@ -178,6 +185,7 @@ const Header = () => {
               
               
             </div>
+           
           </ContentWrapper>
         </div>}
       </header>
