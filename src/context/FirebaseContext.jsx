@@ -19,6 +19,7 @@ const firebaseConfig = {
   const analytics = getAnalytics(app);
   const auth = getAuth(app)
 
+
   const provider = new GoogleAuthProvider();
 
 export const FirebaseContext = createContext();
@@ -44,6 +45,7 @@ export const FirebaseProvider = (props)=>{
        onAuthStateChanged(auth, (user)=>{
             if(user){
                 setUser(true)
+               
             }else{
                 setUser(false)
                 
@@ -51,16 +53,16 @@ export const FirebaseProvider = (props)=>{
         }) 
 
 
-    //     getRedirectResult(auth)
-    //   .then((result) => {
-    //     if (result.user) {
-    //       console.log("Google sign-in successful:", result.user);
-    //       setUser(result.user);
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error during Google sign-in:", error);
-    //   });
+        getRedirectResult(auth)
+      .then((result) => {
+        if (result && result.user) {
+          console.log("Google sign-in successful:", result.user);
+        //   setUser(result.user);
+        }
+      })
+      .catch((error) => {
+        console.error("Error during Google sign-in:", error);
+      });
 
       
 
@@ -82,17 +84,17 @@ export const FirebaseProvider = (props)=>{
     // console.log(isMobileDevice)
     
     const signInWithGoogle = async () => {
-        let details = navigator.userAgent; 
-        let regexp = /android|iphone|kindle|ipad/i;  
-        console.log(regexp)
-
-        let isMobileDevice = regexp.test(details); 
+        let details = navigator.userAgent.toLowerCase(); 
+        let isMobileDevice = /android|iphone|ipad|ipod|opera mini|iemobile|mobile/i.test(details); 
         console.log(isMobileDevice)
+
         try {
             if (isMobileDevice) {
                 await signInWithRedirect(auth, provider);
+                console.log("login with redirect")
               } else {
                 await signInWithPopup(auth, provider);
+                console.log("login with popup")
               }
         } catch (error) {
             console.log("error during google Login", error)

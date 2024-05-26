@@ -20,9 +20,10 @@ const Login = () => {
     console.log(isLoggedIn)
 
     
-    const handleGoogleSignIn = async (e)=>{
-        e.preventDefault();
-        await signInWithGoogle()
+    const handleGoogleSignIn =  ()=>{
+        // e.preventDefault();
+        signInWithGoogle()
+        // console.log("google auth")
     }
 
     
