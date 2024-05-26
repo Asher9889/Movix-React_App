@@ -72,8 +72,8 @@ const HeroBanner = () => {
             <button>search</button>
           </div>
         </div>
-        {/* {toast && <Toast name={first_name} />} */}
-        <Toast />
+        {toast && <Toast name={first_name} />}
+        {/* <Toast /> */}
       </ContentWrapper>
     </div>
   );
