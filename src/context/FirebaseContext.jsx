@@ -48,7 +48,6 @@ export const FirebaseProvider = (props)=>{
                
             }else{
                 setUser(false)
-                
             }
         }) 
 

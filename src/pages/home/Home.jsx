@@ -12,9 +12,9 @@ const Home = () => {
   const {isLoggedIn} = useFirebase()
   // console.log(data)
 
-  useEffect(()=>{
-    isLoggedIn ? navigate("/") : navigate("/login")
-  },[])
+  // useEffect(()=>{
+  //   isLoggedIn ? navigate("/") : navigate("/login")
+  // },[])
 
   return (
     <div class='home'>

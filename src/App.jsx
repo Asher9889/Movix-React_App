@@ -14,7 +14,7 @@ import { useFirebase } from './context/FirebaseContext';
 function App() {
   const dispatch = useDispatch();
   // const navigate = useNavigate()
-  const {isLoggedIn} = useFirebase
+  const {isLoggedIn} = useFirebase();
 
   useEffect(() => {
     getDataFromApi()
